@@ -8,7 +8,7 @@ export default function Collapsible({ children, title, isCollapsed = true }) {
         <div className="collapse-title text-xl">
           {title}
         </div>
-        <div className="collapse-content">
+        <div className="collapse-content overflow-auto">
           {children}
         </div>
       </div>

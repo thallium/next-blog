@@ -13,27 +13,23 @@ export default function Pagination({ totalPages }) {
     const hasPrev = currentPage > 1
     const hasNext = currentPage < totalPages
 
-    console.log(pathname)
-
     return (
-        <nav className="flex justify-around">
-            <Link href={`${basePath}/page/${currentPage - 1}`} style={{
-                pointerEvents: (!hasPrev) ? "none" : "auto",
-            }}>
-                <button className="btn" disabled={!hasPrev}>
-                    Previous
-                </button>
-            </Link>
-            <span>
-                {currentPage} of {totalPages}
-            </span>
-            <Link href={`${basePath}/page/${currentPage + 1}`} style={{
-                pointerEvents: (!hasNext) ? "none" : "auto",
-            }}>
-                <button className="btn" disabled={!hasNext}>
-                    Next
-                </button>
-            </Link>
-        </nav>
+        <div className="flex items-center justify-center">
+            <nav className="join">
+                <Link href={`${basePath}/page/${currentPage - 1}`}
+                    className={`pointer-events-${hasPrev ? "auto" : "none"}`}
+                >
+                    <button className="join-item btn" disabled={!hasPrev}> « </button>
+                </Link>
+                <span className="join-item btn pointer-events-none" >
+                    Page {currentPage} of {totalPages}
+                </span>
+                <Link href={`${basePath}/page/${currentPage + 1}`}
+                    className={`pointer-events-${hasNext ? "auto" : "none"}`}
+                >
+                    <button className="join-item btn" disabled={!hasNext}> » </button>
+                </Link>
+            </nav>
+        </div>
     )
 }
