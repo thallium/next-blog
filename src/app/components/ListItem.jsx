@@ -12,7 +12,7 @@ export default function ListItem({ post, lang }) {
     // const formattedDate = Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date);
     return (
         <li className="mt-3 py-3 text-2xl">
-            <Link className="mb-4 font-medium" href={`/${lang}/posts/${id}`}>{title}</Link>
+            <Link className="mb-4 font-medium" href={`/${lang}/post/${id}`}>{title}</Link>
             <div className="text-base flex flex-row gap-x-2 mb-2 mt-1 items-center">
 
                 {

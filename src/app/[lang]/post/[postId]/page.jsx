@@ -6,10 +6,11 @@ import "@/app/tokyo-night-dark.css"
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
-import torchlight from 'remark-torchlight'
+import rehypeHighlight from "rehype-highlight";
 import Figure from "@/app/components/Figure";
 import Collapsible from "@/app/components/Collapsible";
 import { generateStaticParamsWithLang } from "@/lib/util";
+import Image from "next/image";
 
 /**
  * 
@@ -35,11 +36,14 @@ export default async function Page({ params }) {
                 <MDXRemote source={contentHtml} options={
                     {
                         mdxOptions: {
-                            remarkPlugins: [remarkMath, torchlight],
-                            rehypePlugins: [rehypeKatex],
+                            remarkPlugins: [remarkMath],
+                            rehypePlugins: [rehypeKatex, rehypeHighlight],
                         },
                     }
-                } components={{ Figure, Collapsible }}
+                } components={{
+                    Figure, Collapsible,
+                    Image: (props) => <Image {...props} />
+                }}
                 />
                 < p >
                     <Link href="/">← Back to home</Link>
