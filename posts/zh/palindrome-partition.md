@@ -20,7 +20,7 @@ categories: ["算法笔记"]
 
 $2l \le r$：很明显 $t[0, l), t[l, r - l), t[r - l, r)$ 都是回文子串，我们可以将 $t[0, r)$ 替换成它们。
 
-{{< figure src="https://codeforces.com/predownloaded/fc/5c/fc5c9b76212e5a482bd0ac46af18997696478db2.png" alt="2l <= r 情况示例" position="center" caption="2l <= r 情况示例" >}}
+<Figure src="https://codeforces.com/predownloaded/fc/5c/fc5c9b76212e5a482bd0ac46af18997696478db2.png" alt="2l <= r 情况示例" position="center" caption="2l <= r 情况示例" width="460" height="75" />
 
 $2l > r$：$t[r - l, l)$ 是回文子串（因为关于重心对称），其在 $t[0, l)$ 中的对称部分为 $t[0, 2l - r)$，所以 $t[0, 2l - r)$ 也是回文子串，与我们的假设矛盾，所以不会出现这种情况。
 

@@ -60,7 +60,8 @@ auto dfs = [&](auto &dfs, int u, int pa, bool keep) -> void {
 
 [ABC202 E](https://atcoder.jp/contests/abc202/tasks/abc202_e)
 
-{{% code language="cpp" title="代码" isCollapsed="true" %}}
+<Collapsible title="代码">
+```cpp
 //#pragma GCC target("avx,avx2,fma")
 //#pragma GCC optimize("unroll-loops,Ofast")
 #include <algorithm>
@@ -166,7 +167,8 @@ int main() {
     }
     return 0;
 }
-{{% /code %}}
+```
+</Collapsible>
 
 ## 路径相关应用
 

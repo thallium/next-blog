@@ -11,7 +11,8 @@ tags: [动态规划]
 
 一种简单的dp是令$dp_{i, j}$为将前$i$个数分成$j$个子数组的分法的个数。次转移要遍历$i$前的每个位置$k$然后前缀前缀和判断$sum_i-sum_k$是否是$j$的倍数，如果是的话就加上$dp_{k, j-1}$，所以转移是 $O(n)$的，总的复杂度是$O(n^3)$，会TLE，于是我们想如何优化。考虑到$$((sum_i-sum_k) \bmod j =0)\iff (sum_i\equiv sum_k \mod j)$$ 也许我们不用遍历所有的$k$，只要记录对于每个位置$k$, $sum_k\bmod i=j$的$dp_{k, i-1}$的和就行了。于是我们的状态$dp_{i, j}$的定义就变成了在k位置结束的子数组,分成$i$个子数组并且$sum_k\bmod i=j$的分法的个数。（说实话不是很好理解）
 
-{{% code language="cpp" title="代码" isCollapsed="true" %}}
+<Collapsible title="代码">
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
@@ -84,13 +85,15 @@ int main() {
     }
     cout << ans << '\n';
 }
-{{% /code %}}
+```
+</Collapsible>
 
 ## 方法二
 
 这种方法和方法一的出发点一样，但转移的时候我们只考虑最大的k,这是因为两个和为$j$的的倍数的子数组拼起来和依然是$j$的倍数，所以我们保持一开始的dp状态定义，然后用$O(n^2)$的时间预处理出$pre_{i, j}$，即对于每个位置$i$，其左边第一个位置使得$sum_{pre_{i, j}}\equiv sum_{i}\mod j$，转移时考虑两种情况：pre的位置被分成了$j$或$j-1$个子数组。
 
-{{% code language="cpp" title="代码" isCollapsed="true" %}}
+<Collapsible title="代码">
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
@@ -170,4 +173,5 @@ int main() {
     }
     cout << accumulate(dp[n - 1].begin(), dp[n - 1].end(), mint()) << '\n';
 }
-{{% /code %}}
+```
+</Collapsible>

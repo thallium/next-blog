@@ -8,6 +8,7 @@ categories: ["Home Server"]
 ---
 The method comes form a [video](https://www.youtube.com/watch?v=qlcVx-k-02E) of Walfgang's Channel. This post is just a note of that video for experienced people.
 
+
 The key point is that you can create a DNS record that points to your local IP address.
 
 Prerequisite: a domain name, a reverse proxy (I'm using Nginx Proxy Manager here), a SSL certificate of the domain that you'll be using.

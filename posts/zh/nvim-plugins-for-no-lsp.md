@@ -45,7 +45,7 @@ map('n', '<Leader>s', require'telescope'.extensions.aerial.aerial)
 ## 终端
 
 用[nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)管理终端，一个很好用的功能是自定义终端，比如定义一个默认打开lazygit的终端：
-{{< figure src="https://user-images.githubusercontent.com/22454918/116447435-e69f1480-a84f-11eb-86dd-19fa29646aa1.png" alt="自定义lazygit示意图" position="center" caption="自定义lazygit示意图(来自官方README)" captionPosition="center" >}}
+<Figure src="https://user-images.githubusercontent.com/22454918/116447435-e69f1480-a84f-11eb-86dd-19fa29646aa1.png" alt="自定义lazygit示意图" position="center" caption="自定义lazygit示意图(来自官方README)" captionPosition="center" width="951" height="521" />
 ```lua
 local Terminal  = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({
