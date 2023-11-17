@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { siteMetadata } from "@/data/siteConfig"
 import navLinks from "@/data/navLinks"
+import MobileNav from "./MobileNav"
 
 export default function Navbar({ lang }) {
     return (
@@ -9,7 +10,7 @@ export default function Navbar({ lang }) {
                 <div>
                     <Link href={`/${lang}`}>
                         <div className="flex items-center justify-between">
-                            <div className="hidden font-semibold sm:block">
+                            <div className="font-semibold block">
                                 {siteMetadata.title}
                             </div>
                         </div>
@@ -28,6 +29,7 @@ export default function Navbar({ lang }) {
                             </Link>
                         ))}
                 </div>
+                <MobileNav lang={lang} />
             </div>
         </header>
     )
