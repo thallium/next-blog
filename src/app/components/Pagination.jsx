@@ -16,7 +16,7 @@ export default function Pagination({ totalPages }) {
     return (
         <div className="flex items-center justify-center">
             <nav className="join">
-                <Link href={`${basePath}/page/${currentPage - 1}`}
+                <Link href={`${basePath}/page/${Math.max(currentPage - 1, 0)}`}
                     className={`pointer-events-${hasPrev ? "auto" : "none"}`}
                 >
                     <button className="join-item btn" disabled={!hasPrev}> « </button>
@@ -24,7 +24,7 @@ export default function Pagination({ totalPages }) {
                 <span className="join-item btn pointer-events-none" >
                     Page {currentPage} of {totalPages}
                 </span>
-                <Link href={`${basePath}/page/${currentPage + 1}`}
+                <Link href={`${basePath}/page/${Math.min(currentPage + 1, totalPages)}`}
                     className={`pointer-events-${hasNext ? "auto" : "none"}`}
                 >
                     <button className="join-item btn" disabled={!hasNext}> » </button>
