@@ -2,11 +2,9 @@
 const nextConfig = {
     images: {
         remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'codeforces.com',
-                port: '',
-            },
+            { protocol: 'https', hostname: 'codeforces.com', },
+            { protocol: 'https', hostname: 'user-images.githubusercontent.com', },
+            { protocol: 'https', hostname: 'cdn.sparkfun.com', },
         ],
     },
 }

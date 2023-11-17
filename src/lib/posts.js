@@ -1,17 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
-import rehypeKatex from 'rehype-katex'
-import remarkMath from 'remark-math'
-import rehypeHighlight from 'rehype-highlight'
-import remarkDirective from 'remark-directive'
-import { figure } from './md-directives'
-import torchlight from 'remark-torchlight'
-import remarkParse from 'remark-parse'
 
 const postsRootDirectory = path.join(process.cwd(), 'posts')
 
@@ -29,9 +18,10 @@ const postsRootDirectory = path.join(process.cwd(), 'posts')
 
 /**
  * @param {string} lang
+ * @param {{category: string, tag: string}} opt
  * @returns PostData[]
  */
-export function getSortedPostsData(lang) {
+export function getSortedPostsData(lang, opt) {
     const postsDirectory = path.join(postsRootDirectory, lang)
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory)
@@ -56,16 +46,29 @@ export function getSortedPostsData(lang) {
             keywords: matterData.keywords,
             tags: matterData.tags,
             categories: matterData.categories,
+            draft: matterData.draft,
         }
 
         return blogPost;
-    })
+    }).filter(post => !post.draft)
+
     // Sort posts by date
-    return allPostsData.sort((a, b) => {
+    allPostsData.sort((a, b) => {
         if (!a.date) return 1;
         if (!b.date) return -1;
         return a.date < b.date ? 1 : -1
     })
+
+    if (!opt || (!opt.category && !opt.tag)) return allPostsData;
+    else if (opt.category) {
+        return allPostsData.filter(post => {
+            return post.categories && post.categories.includes(opt.category)
+        })
+    } else if (opt.tag) {
+        return allPostsData.filter(post => {
+            return post.tags && post.tags.includes(opt.tag)
+        })
+    }
 }
 
 /**
@@ -81,24 +84,12 @@ export function getSortedPostsData(lang) {
  *  contentHtml: string,
  * }}
  */
-export async function getPostData(lang, id) {
+export function getPostData(lang, id) {
     const fullPath = path.join(postsRootDirectory, lang, `${id}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
 
     // Use gray-matter to parse the post metadata section
     const matterData = matter(fileContents)
-
-    // const processedContent = await remark()
-    //     .use(remarkParse)
-    //     .use(remarkDirective)
-    //     .use(remarkGfm)
-    //     .use(remarkMath)
-    //     .use(figure)
-    //     .use(torchlight)
-    //     .use(remarkRehype)
-    //     .use(rehypeKatex)
-    //     .use(rehypeStringify)
-    //     .process(matterData.content)
 
     const blogPost = {
         id,
@@ -110,4 +101,24 @@ export async function getPostData(lang, id) {
     }
 
     return blogPost;
+}
+
+export function getTags(lang) {
+    const cnt = getSortedPostsData(lang).reduce((cnt, post) => {
+        if (!post.tags) return cnt;
+        for (let tag of post.tags) {
+            if (cnt[tag]) {
+                cnt[tag]++;
+            } else {
+                cnt[tag] = 1;
+            }
+        }
+        return cnt;
+    }, {})
+
+    const sorted = Object.entries(cnt).sort((a, b) => {
+        return a[0] < b[0] ? -1 : 1
+    })
+
+    return sorted;
 }
