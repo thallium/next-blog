@@ -2,17 +2,26 @@ import Posts from "@/app/components/Posts";
 import { getSortedPostsData } from "@/lib/posts";
 import { generateStaticParamsWithLang, getTotalPages } from "@/lib/util";
 import Pagination from "@/app/components/Pagination";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 export default function page({ params }) {
-    const { lang, page } = params;
-    if (page === "1") {
-        redirect(`/${params.lang}/posts/`)
+    /** @type {{lang: string, slug: string[]}} */
+    const { lang, slug } = params;
+    if (slug && (slug.length !== 2 || slug[0] !== "page")) {
+        notFound()
+    }
+    if (slug && slug[1] === "1") {
+        redirect(`/${lang}/posts/`)
+    }
+    const page = slug ? parseInt(slug[1]) : 1
+    const totalPages = getTotalPages(lang)
+    if (page <= 0 || page > totalPages) {
+        notFound()
     }
     return (
         <>
             <Posts lang={lang} page={page} />
-            <Pagination totalPages={getTotalPages(lang)} />
+            <Pagination totalPages={totalPages} />
         </>
     )
 }
@@ -22,10 +31,17 @@ export async function generateStaticParams() {
         const posts = getSortedPostsData(lang)
         const totalPages = getTotalPages(lang)
         const params = Array.from({ length: totalPages }, (_, i) => {
+            if (i === 0) {
+                return {
+                    params: {
+                        lang
+                    }
+                }
+            }
             return {
                 params: {
                     lang,
-                    page: (i + 1).toString()
+                    slug: ['page', (i + 1).toString()]
                 }
             }
         })
