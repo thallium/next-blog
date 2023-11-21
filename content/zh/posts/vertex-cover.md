@@ -12,7 +12,7 @@ categories: ["算法笔记"]
 独立集是补图中的一个团，这个显而易见。所以最大独立集是补图中的最大团。
 
 下面介绍一种在 $O(2 ^ \frac{n}{2})$ 时间求最大团的做法。考虑如下暴力做法：设 $\operatorname{solve}(s)$ 返回点集 $s$ 能构成点最大团，我们找到 $s$ 中标号最小的点 $v$，有两种情况：
-1. $v$ 不在最大团里，此时我们把 $v$ 从 $s$ 中除去，调用 $\operatorname{solve}(s\backslash\\{v\\})$
+1. $v$ 不在最大团里，此时我们把 $v$ 从 $s$ 中除去，调用 $\operatorname{solve}(s\backslash\{v\})$
 2. $v$ 在最大团里，接下来我们只需考虑和 $v$ 相邻的点，调用 $\operatorname{solve}(s\cap g_v)$，其中 $g_v$ 是与 $v$ 相邻的点的集合。
 
 $\operatorname{solve}(s)$ 即返回以上两种情况的最大值。

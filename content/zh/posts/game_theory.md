@@ -37,11 +37,11 @@ math: true
 如果游戏条件比较复杂，为了判断每个点的胜负状态，就需要引入SG函数。
 
 #### 定义：
-$$\operatorname{sg}(u)=\operatorname{mex}\\{\operatorname{sg}(v)\\} $$
+$$\operatorname{sg}(u)=\operatorname{mex}\{\operatorname{sg}(v)\} $$
 
 其中v为u的后继状态，mex函数是作用于整数集合的函数，函数值是不属于该集合的最小自然数。
 
-$$\operatorname{mex}(A)=\min\\{k | k\in\complement_NA\\}$$
+$$\operatorname{mex}(A)=\min\{k | k\in\complement_NA\}$$
 
 那么，终止状态的SG值显然为0，并且SG值为0的状态就是P状态，SG值不为0的状态就是N状态。
 证明则非常显然，SG值为0的状态，说明它的所有后继状态都不为0，也就是它只能转移到非0状态，而SG值不为0的状态则不一样，后继状态一定有0，可能有其他非负整数。那么SG值为0的状态就是必败状态的定义，SG值不为0的状态就是必胜状态的定。

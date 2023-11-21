@@ -677,9 +677,9 @@ int main() {
 
 不难想到一种 dp 状态 $dp_{i, sum, size}$，代表前 $i$ 个数中，是否存在和为 $sum$ 且大小为 $size$ 的子集。本来想卡掉这个做法的，和易老师以及伍老师讨论之后还是放弃了，下面是优化后的做法：
 
-设 $dp_{i, sum}$ 为前 $i$ 个数中，和为 $sum$ 的子集的大小的集合。例如，假设$a = 1, 2, 3$，因为 $\operatorname{sum}(\\{1, 2\\}) = 3, \operatorname{sum}(\\{3\\}) = 3$，那么 $dp_{3, 3} = \\{1, 2\\}$。那么状态转移是显然的：
+设 $dp_{i, sum}$ 为前 $i$ 个数中，和为 $sum$ 的子集的大小的集合。例如，假设$a = 1, 2, 3$，因为 $\operatorname{sum}(\{1, 2\}) = 3, \operatorname{sum}(\{3\}) = 3$，那么 $dp_{3, 3} = \{1, 2\}$。那么状态转移是显然的：
 
-$$dp_{i, sum + a_i} \coloneqq dp_{i, sum + a_i} \cup \\{ s + 1 | s \in dp_{i - 1, sum}\\}$$
+$$dp_{i, sum + a_i} \coloneqq dp_{i, sum + a_i} \cup \{ s + 1 | s \in dp_{i - 1, sum}\}$$
 
 如果我们用二进制表示集合的话，这个状态转移可以被非常容易的写成 
 
