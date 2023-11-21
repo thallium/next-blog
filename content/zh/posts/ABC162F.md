@@ -21,11 +21,24 @@ yysy这种题想出来真的爽。
 
 现在我们可以考虑状态转移了。如果$i$是奇数，那么选的数的个数和$i-1$是一样的。所以$dp_{i,j}$应该等于$dp_{i-1,j-1}$除了$dp_{i,0}$，因为$a_i$在计算$dp_{i-1,j}$的时候并没有被考虑到，所以$dp_{i,0}$应该从$dp_{i-2,j}$转移过来。以下是状态转移方程:
 
-$$ \begin{align*}dp_{i,0}&=\max(dp_{i-2,0},dp_{i-2,1},dp_{i-2,2})+a_i \\\ dp_{i,1}&=dp_{i-1,0}\\\ dp_{i,2}&=dp_{i-1,1}\end{align*} $$
 
 当$i$为偶数，要比$i-1$多选一个数，想法基本类似。状态转移如下：
 
-\\[ \begin{align*}dp_{i,0}&=\max(dp_{i-1,i},dp_{i-1,2})+a_i \\\ dp_{i,1}&=dp_{i-1,2}+a_i\end{align*} \\]
+$$
+\begin{align*}dp_{i,0}&=\max(dp_{i-2,0},dp_{i-2,1},dp_{i-2,2})+a_i \\ 
+dp_{i,1}&=dp_{i-1,0}\\ 
+dp_{i,2}&=dp_{i-1,1}
+\end{align*}
+$$
+
+
+$$
+\begin{align*}
+dp_{i,0}&=\max(dp_{i-1,i},dp_{i-1,2})+a_i \\
+dp_{i,1}&=dp_{i-1,2}+a_i
+\end{align*}
+$$
+
 
 
 ## Code

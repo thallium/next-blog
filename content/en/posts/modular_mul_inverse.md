@@ -9,6 +9,7 @@ tags:
 - Combinatorics
 math: true
 ---
+
 # What is Modular Multiplicative Inverse?
 
 If $a\cdot x \equiv 1\pmod p$, $x$ is called a inverse of a(modulo p), referred to as $a^{-1}$. We usually use the minimum positive inverse.
@@ -16,6 +17,7 @@ If $a\cdot x \equiv 1\pmod p$, $x$ is called a inverse of a(modulo p), referred 
 # The use of Inverse
 
 The inverse is used when calculating the modulo of division.
+
 $$\dfrac{a}{b} \equiv a \cdot b^{-1}\pmod p$$
 
 # The ways to calculate the inverse of a number
@@ -65,10 +67,13 @@ Calculate $\dbinom{n}{m} \bmod p$
 We can use the inverse to calculate $\dfrac{n!}{m!\cdot (n-m)!}\equiv(n!\mod p\cdot (m!\mod p)^{-1}\cdot ((n-m)!\mod p)^{-1})\pmod p$
 
 ### Calculate the inverse of factorial
-$$\because n!\cdot(n!)^{-1}\equiv 1 \pmod p\\
-\therefore (n-1)!\cdot (n\cdot (n!)^{-1})\equiv 1 \pmod p$$
+
+$$\because n!\cdot(n!)^{-1}\equiv 1 \pmod p$$
+
+$$\therefore (n-1)!\cdot (n\cdot (n!)^{-1})\equiv 1 \pmod p$$
 
 Therefore$(n\cdot (n!)^{-1})$is an inverse of $(n-1)!$.
+
 ```cpp
 fact[0] = 1;
 for (int i = 1; i < maxn; i++) {
@@ -79,12 +84,12 @@ for (int i = maxn - 2; i >= 0; i--) {
     inv[i] = inv[i + 1] * (i + 1) %mod;
 }
 ```
+
 ## When n and m are really big but p is not too big
 
 $$\binom{n}{m}\bmod p=\binom{\lfloor\frac{n}{p}\rfloor }{\lfloor\frac{m}{p}\rfloor }\binom{n\bmod p }{m\bmod p}\bmod p$$
 
 ```cpp
-
 long long Lucas(long long n, long long m, long long p) {
   if (m == 0) return 1;
   return (C(n % p, m % p, p) * Lucas(n / p, m / p, p)) % p;

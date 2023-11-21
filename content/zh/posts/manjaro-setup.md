@@ -20,7 +20,7 @@ math: true
 
 编辑 `/etc/X11/xorg.conf.d/30-touchpad.conf`
 
-```shell
+```sh
 Section "InputClass"
     Identifier "touchpad"
     MatchIsTouchpad "on"
@@ -36,7 +36,7 @@ EndSection
 
 编辑`~/.Xmodmap`
 
-```shell
+```sh
 clear lock
 keycode  43 = h H Left H
 keycode  44 = j J Down J
@@ -49,20 +49,20 @@ keycode  32 = o O KP_End O
 
 Then update xmodmap:
 
-{% highlight shell %}
+```sh
 xmodmap ~/.Xmodmap
-{% endhighlight %}
+```
 
 解决挂起后失效的问题：
 
-{% highlight shell %}
+```sh
 sudo touch /usr/lib/systemd/system-sleep/xkeyboard
 sudo chmod 755 /usr/lib/systemd/system-sleep/xkeyboard
-{% endhighlight %}
+```
 
 编辑`xkeyboard`
 
-```shell
+```sh
 #!/bin/bash
 
 case $1 in
@@ -81,9 +81,9 @@ esac
 
 [arc](https://github.com/horst3180/arc-theme)
 
-{% highlight shell %}
+```sh
 sudo pacman -S arc-gtk-theme
-{% endhighlight %}
+```
 
 ## 软件
 
@@ -101,17 +101,17 @@ sudo pacman -S arc-gtk-theme
 
 #### 安装
 
-{% highlight shell %}
+```sh
 yay autojump
-{% endhighlight %}
+```
 
 #### Source the correct autojump file
 
-{% highlight shell %}
+```sh
 echo "/usr/share/autojump/autojump.bash" >> ~/.bashrc
 chmod 755 /usr/share/autojump/autojump.bash
 source ~/.bashrc
-{% endhighlight %}
+```
 
 #### 注意事项
 
@@ -121,9 +121,9 @@ source ~/.bashrc
 
 一开始用的是火焰截图，但是不能自动识别窗口，后来偶然发现deepin screenshot感觉挺不错的。
 
-{% highlight shell %}
+```sh
 sudo pacman -S deepin-screenshot
-{% endhighlight %}
+```
 
 如果不能正常复制到剪贴板，安装`xfce4-clipman`
 
@@ -133,11 +133,11 @@ sudo pacman -S deepin-screenshot
 
 安装：
 
-{% highlight shell %}
+```sh
 git clone https://github.com/chestnutheng/wudao-dict
 cd ./wudao-dict/wudao-dict
 sudo bash setup.sh
-{% endhighlight %}
+```
 
 ## 问题解决
 
@@ -156,13 +156,13 @@ gnome传统艺能，`alt+F2`再输入`r`可以重新启动shell。
 编辑`/usr/share/applications/gvim.desktop`
 
 把
-{% highlight shell %}
+```sh
 Exec=gvim -f %F
-{% endhighlight %}
+```
 改成
-{% highlight shell %}
+```sh
 Exec=gvim -p --remote-tab-silent %F
-{% endhighlight %}
+```
 
 ### i3wm下运行QQ/TIM/Wechat
 
@@ -170,10 +170,9 @@ Exec=gvim -p --remote-tab-silent %F
 
 [原作者](http://www.waimaosns.cc/arch-linux-i3wm-run-deepin-qq-tim/)
 
-{% highlight shell %}
+```sh
 nohup /usr/lib/gsd-xsettings > /dev/null 2>&1 &
 cd /opt/deepinwine/apps/Deepin-TIM
 ./run.sh
-{% endhighlight %}
-
+```
 最后将第一步添加到i3启动项里。

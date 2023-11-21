@@ -193,7 +193,7 @@ int main() {
 
 ### Solution
 
-Let $dp_{i,j}$ denotes the number of permutations of $0, 1, \dots , i - 1$ such that the last element is j and all the first i - 1 inequalities are fulfilled. 
+Let $dp_{i,j}$ denotes the number of permutations of $0, 1, \dots , i - 1$ such that the last element is j and all the first i - 1 inequalities are fulfilled. 
 
 Transition is:
 
