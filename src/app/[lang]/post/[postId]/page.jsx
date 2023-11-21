@@ -6,6 +6,7 @@ import { IconHash } from "@tabler/icons-react";
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 import rehypeHighlight from "rehype-highlight";
+import remarkGfm from "remark-gfm";
 
 import { getSortedPostsData, getPostData } from "@/lib/posts"
 import { generateStaticParamsWithLang } from "@/lib/util";
@@ -52,8 +53,8 @@ export default async function Page({ params }) {
                 <MDXRemote source={content} options={
                     {
                         mdxOptions: {
-                            remarkPlugins: [remarkMath],
-                            rehypePlugins: [rehypeKatex, rehypeHighlight],
+                            remarkPlugins: [remarkMath, remarkGfm],
+                            rehypePlugins: [[rehypeKatex, { strict: true, throwOnError: true }], rehypeHighlight],
                         },
                     }
                 } components={MDXComponents}
@@ -68,10 +69,8 @@ export async function generateStaticParams() {
         const posts = getSortedPostsData(lang)
         const params = posts.map(post => {
             return {
-                params: {
-                    lang,
-                    postId: post.id
-                }
+                lang,
+                postId: post.id
             }
         })
         return params
