@@ -1,6 +1,6 @@
 import Navbar from "@/app/components/Navbar"
 import Footer from "@/app/components/Footer"
-import { langs, data } from "@/data/i18n"
+import { config, languages } from "@/data/siteConfig"
 import { notFound } from "next/navigation"
 import { Inter } from "next/font/google"
 import '@/app/globals.css'
@@ -22,7 +22,7 @@ export function generateMetadata({ params }) {
             description: siteMetadata.description,
             url: './',
             siteName: siteMetadata.title,
-            locale: data[lang].langCode,
+            locale: languages[lang].langCode,
             type: 'website',
         },
         robots: {
@@ -48,11 +48,11 @@ const inter = Inter({ subsets: ['latin'] })
 // <body className={`${inter.className} text-[#222222] bg-[#fff] dark:bg-[#292a2d] dark:text-[#A9A9B3]`}>
 export default function RootLayout({ children, params }) {
     const { lang } = params;
-    if (!langs.includes(lang)) {
+    if (!config.langs.includes(lang)) {
         notFound();
     }
     return (
-        <html lang={`${data[lang].langCode}`}>
+        <html lang={`${languages[lang].langCode}`}>
             <body className={`${inter.className} `}>
                 <Navbar lang={params.lang} />
                 <div className="min-h-screen max-w-3xl mx-auto px-6 xl:px-0 mt-6">

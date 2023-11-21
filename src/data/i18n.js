@@ -1,12 +1,5 @@
-export const langs = ["en", "zh"]
+import { languages } from "@/data/siteConfig"
 
-export const data = {
-    en: {
-        name: "English",
-        langCode: "en",
-    },
-    zh: {
-        name: "中文",
-        langCode: "zh-hans"
-    },
+export function translate(lang, key) {
+    return languages[lang].dict[key]
 }

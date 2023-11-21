@@ -1,4 +1,4 @@
-import { data } from '@/data/i18n'
+import { languages } from '@/data/siteConfig'
 import { siteMetadata } from '@/data/siteConfig'
 
 /**
@@ -14,7 +14,7 @@ export function genPageMetadata({ lang, title, description, ...rest }) {
             description: description || siteMetadata.description,
             url: './',
             siteName: siteMetadata.title,
-            locale: data[lang].langCode,
+            locale: languages[lang].langCode,
             type: 'website',
         },
         twitter: {

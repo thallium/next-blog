@@ -1,7 +1,7 @@
 'use client'
 
 import { LanguageIcon } from "@heroicons/react/24/outline";
-import { langs, data } from "@/data/i18n";
+import { config, languages } from "@/data/siteConfig";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,9 +13,9 @@ export default function LangSwitch() {
             <LanguageIcon tabIndex={0} className="h-6 w-6 cursor-pointer" />
             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow rounded-box text-base bg-base-200">
                 {
-                    langs.map(lang => (
+                    config.langs.map(lang => (
                         <li key={lang}>
-                            <Link href={`/${lang}/${suffix}`} >{data[lang].name}</Link>
+                            <Link href={`/${lang}/${suffix}`} >{languages[lang].name}</Link>
                         </li>
                     ))
                 }

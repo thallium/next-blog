@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { siteMetadata } from "@/data/siteConfig"
-import navLinks from "@/data/navLinks"
+import { languages } from "@/data/siteConfig"
 import MobileNav from "./MobileNav"
 import LangSwitch from "./LangSwitch"
 
@@ -18,7 +18,7 @@ export default function Navbar({ lang }) {
                     </Link>
                 </div>
                 <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
-                    {navLinks
+                    {languages[lang].navLinks
                         .filter((link) => link.href !== '/')
                         .map((link) => (
                             <Link
