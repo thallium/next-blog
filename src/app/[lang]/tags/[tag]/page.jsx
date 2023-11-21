@@ -28,10 +28,8 @@ export async function generateStaticParams() {
         return tags.map(tag => {
             tag = tag[0]
             return {
-                params: {
-                    lang,
-                    tag
-                }
+                lang,
+                tag
             }
         }).reduce((acc, val) => acc.concat(val), [])
     })

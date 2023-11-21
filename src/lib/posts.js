@@ -37,7 +37,8 @@ export function getSortedPostsData(lang, tag) {
         const mat = matter(fileContents)
         const matterData = mat.data
 
-        const tags = (matterData.tags || []).concat(matterData.categories)
+        const cat = matterData.category || matterData.categories || []
+        const tags = (matterData.tags || []).concat(cat)
         // Combine the data with the id
         /** @type PostData */
         const blogPost = {

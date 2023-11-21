@@ -36,11 +36,9 @@ export async function generateStaticParams() {
             const totalPages = getTotalPages(lang, tag)
             const params = Array.from({ length: totalPages }, (_, i) => {
                 return {
-                    params: {
-                        lang,
-                        tag,
-                        page: (i + 1).toString()
-                    }
+                    lang,
+                    tag,
+                    page: (i + 1).toString()
                 }
             })
             return params
