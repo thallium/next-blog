@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-const postsRootDirectory = path.join(process.cwd(), 'posts')
+const postsRootDirectory = path.join(process.cwd(), 'content')
 
 /**
  * @typedef {{
@@ -12,17 +12,17 @@ const postsRootDirectory = path.join(process.cwd(), 'posts')
  *  summary: string,
  *  keywords: string[],
  *  tags: string[],
- *  categories: string[],
+ *  content: string,
  * }} PostData
  */
 
 /**
  * @param {string} lang
  * @param {{category: string, tag: string}} opt
- * @returns PostData[]
+ * @returns {PostData[]}
  */
-export function getSortedPostsData(lang, opt) {
-    const postsDirectory = path.join(postsRootDirectory, lang)
+export function getSortedPostsData(lang, tag) {
+    const postsDirectory = path.join(postsRootDirectory, lang, 'posts')
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory)
     const allPostsData = fileNames.map(fileName => {
@@ -34,8 +34,10 @@ export function getSortedPostsData(lang, opt) {
         const fileContents = fs.readFileSync(fullPath, 'utf8')
 
         // Use gray-matter to parse the post metadata section
-        const matterData = matter(fileContents).data
+        const mat = matter(fileContents)
+        const matterData = mat.data
 
+        const tags = (matterData.tags || []).concat(matterData.categories)
         // Combine the data with the id
         /** @type PostData */
         const blogPost = {
@@ -44,9 +46,9 @@ export function getSortedPostsData(lang, opt) {
             date: Date.parse(matterData.date),
             summary: matterData.summary,
             keywords: matterData.keywords,
-            tags: matterData.tags,
-            categories: matterData.categories,
+            tags: [...new Set(tags)].sort(),
             draft: matterData.draft,
+            content: mat.content,
         }
 
         return blogPost;
@@ -59,15 +61,13 @@ export function getSortedPostsData(lang, opt) {
         return a.date < b.date ? 1 : -1
     })
 
-    if (!opt || (!opt.category && !opt.tag)) return allPostsData;
-    else if (opt.category) {
+    if (tag) {
         return allPostsData.filter(post => {
-            return post.categories && post.categories.includes(opt.category)
+            return post.tags?.includes(tag)
         })
-    } else if (opt.tag) {
-        return allPostsData.filter(post => {
-            return post.tags && post.tags.includes(opt.tag)
-        })
+    }
+    else {
+        return allPostsData;
     }
 }
 
@@ -75,32 +75,10 @@ export function getSortedPostsData(lang, opt) {
  * 
  * @param {string} lang 
  * @param {string} id 
- * @returns {{
- *  id: string,
- *  title: string,
- *  date: number,
- *  tags: string[],
- *  categories: string[],
- *  contentHtml: string,
- * }}
+ * @returns {PostData}
  */
 export function getPostData(lang, id) {
-    const fullPath = path.join(postsRootDirectory, lang, `${id}.md`)
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-    // Use gray-matter to parse the post metadata section
-    const matterData = matter(fileContents)
-
-    const blogPost = {
-        id,
-        title: matterData.data.title,
-        date: Date.parse(matterData.data.date),
-        tags: matterData.data.tags,
-        categories: matterData.data.categories,
-        contentHtml: matterData.content,
-    }
-
-    return blogPost;
+    return getSortedPostsData(lang).find(post => post.id === id)
 }
 
 export function getTags(lang) {
@@ -121,4 +99,13 @@ export function getTags(lang) {
     })
 
     return sorted;
+}
+
+export function readContent(lang, id) {
+    const fileName = path.join(postsRootDirectory, lang, `${id}.md`)
+    const fileContents = fs.readFileSync(fileName, 'utf8')
+
+    // Use gray-matter to parse the post metadata section
+    const mat = matter(fileContents)
+    return mat.content;
 }

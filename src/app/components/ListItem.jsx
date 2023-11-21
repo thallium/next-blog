@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link';
-import { IconCategory } from '@tabler/icons-react';
+import { IconHash } from '@tabler/icons-react';
 
 /**
  * import { PostData } from "../../lib/posts.js";
@@ -12,19 +12,21 @@ export default function ListItem({ post, lang }) {
     // const formattedDate = Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date);
     return (
         <li className="mt-3 py-3 text-2xl">
-            <Link className="mb-4 font-medium" href={`/${lang}/post/${id}`}>{title}</Link>
-            <div className="text-base flex flex-row gap-x-2 mb-2 mt-1 items-center">
+            <Link className="mb-4 font-medium text-base-content" href={`/${lang}/post/${id}`}>{title}</Link>
+            <div className="text-base flex flex-row flex-wrap gap-x-2 mb-2 mt-1 items-center">
 
                 {
-                    post.date &&
-                    <time>{new Date(post.date).toISOString().split("T")[0]}</time>
+                    date &&
+                    <time className="whitespace-nowrap text-base-content">{new Date(date).toISOString().split("T")[0]}</time>
                 }
                 {
-                    (post.categories && post.categories.length > 0) &&
-                    <Link href={"/"} className='flex flex-row items-center'>
-                        <IconCategory size={20} />
-                        {post.categories[0]}
-                    </Link>
+                    (tags && tags.length > 0) &&
+                    tags.map(tag => (
+                        <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row whitespace-nowrap items-center no-underline text-neutral-content'>
+                            <IconHash size={20} />
+                            {tag}
+                        </Link>
+                    ))
                 }
             </div>
         </li>

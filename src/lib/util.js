@@ -9,7 +9,7 @@ export function generateStaticParamsWithLang(f) {
     return allParams
 }
 
-export function getTotalPages(lang, opt) {
-    const posts = getSortedPostsData(lang, opt)
+export function getTotalPages(lang, tag) {
+    const posts = getSortedPostsData(lang, tag)
     return Math.ceil(posts.length / config.postPerPage)
 }

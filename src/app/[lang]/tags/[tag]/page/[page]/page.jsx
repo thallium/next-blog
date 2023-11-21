@@ -1,22 +1,23 @@
 import Posts from "@/app/components/Posts";
-import { getSortedPostsData, getTags } from "@/lib/posts";
+import { getTags } from "@/lib/posts";
 import { generateStaticParamsWithLang, getTotalPages } from "@/lib/util";
 import Pagination from "@/app/components/Pagination";
 import { notFound, redirect } from "next/navigation";
+import { genPageMetadata } from "@/lib/seo";
 
 export default function page({ params }) {
-    /** @type {{lang: string, slug: string[]}} */
-    const { lang, tag, slug } = params;
-    if (slug && (slug.length !== 2 || slug[0] !== "page")) {
+    /** @type {{lang: string, tag: string, page: string}} */
+    const { lang, tag, page } = params;
+    if (isNaN(parseInt(page))) {
         notFound()
     }
-    if (slug && slug[1] === "1") {
+    const pageNum = parseInt(page)
+    if (pageNum === 1) {
         redirect(`/${lang}/tags/${tag}`)
     }
-    const page = slug ? parseInt(slug[1]) : 1
     const decodedTag = decodeURIComponent(tag)
-    const totalPages = getTotalPages(lang, { tag: decodedTag })
-    if (page <= 0 || page > totalPages) {
+    const totalPages = getTotalPages(lang, decodedTag)
+    if (pageNum <= 0 || pageNum > totalPages) {
         notFound()
     }
     return (
@@ -30,28 +31,29 @@ export default function page({ params }) {
 export async function generateStaticParams() {
     return generateStaticParamsWithLang(lang => {
         const tags = getTags(lang)
-        tags.map(tag => {
+        return tags.map(tag => {
             tag = tag[0]
-            const posts = getSortedPostsData(lang, { tag: tag })
-            const totalPages = getTotalPages(lang, { tag: tag })
+            const totalPages = getTotalPages(lang, tag)
             const params = Array.from({ length: totalPages }, (_, i) => {
-                if (i === 0) {
-                    return {
-                        params: {
-                            lang,
-                            tag
-                        }
-                    }
-                }
                 return {
                     params: {
                         lang,
                         tag,
-                        slug: ['page', (i + 1).toString()]
+                        page: (i + 1).toString()
                     }
                 }
             })
             return params
         }).reduce((acc, val) => acc.concat(val), [])
+    })
+}
+
+export async function generateMetadata({ params }) {
+    const { lang, tag } = params;
+    const decodedTag = decodeURIComponent(tag)
+    return genPageMetadata({
+        lang,
+        title: decodedTag,
+        description: `Posts tagged with ${decodedTag}`,
     })
 }

@@ -1,16 +1,19 @@
-import { getSortedPostsData } from "@/lib/posts"
-import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getPostData } from "@/lib/posts";
-import "@/app/tokyo-night-dark.css"
+import { notFound } from "next/navigation";
+
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { IconHash } from "@tabler/icons-react";
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 import rehypeHighlight from "rehype-highlight";
-import Figure from "@/app/components/Figure";
-import Collapsible from "@/app/components/Collapsible";
+
+import { getSortedPostsData, getPostData } from "@/lib/posts"
 import { generateStaticParamsWithLang } from "@/lib/util";
-import Image from "next/image";
+
+import MDXComponents from "../../../components/MDXComponents";
+
+import "@/app/tokyo-night-dark.css"
+import { genPageMetadata } from "@/lib/seo";
 
 /**
  * 
@@ -24,30 +27,37 @@ export default async function Page({ params }) {
     if (!posts.find(post => post.id === postId)) {
         return notFound()
     }
-    const { title, date, contentHtml } = await getPostData(lang, postId)
+    const { title, date, tags, content } = await getPostData(lang, postId)
 
     return (
-        <main className="max-w-3xl py-3 xl:py-6 prose dark:prose-invert prose-pre:bg-[#1a1b26]">
-            <h1 className="text-3xl mt-4 mb-0 pb-2">{title}</h1>
-            <p className="mt-0">
-                {new Date(date).toISOString().split("T")[0]}
-            </p>
-            <article>
-                <MDXRemote source={contentHtml} options={
+        <main className="max-w-3xl py-3 xl:py-6 prose prose-code:font-normal prose-a:font-normal">
+            <h1>{title}</h1>
+            <div className="text-base flex flex-row gap-x-1 mb-2 mt-1 items-center">
+
+                {
+                    date &&
+                    <time>{new Date(date).toISOString().split("T")[0]}</time>
+                }
+                {
+                    (tags && tags.length > 0) &&
+                    tags.map(tag => (
+                        <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row items-center no-underline text-neutral-content'>
+                            <IconHash size={18} />
+                            {tag}
+                        </Link>
+                    ))
+                }
+            </div>
+            <article className="prose-pre:bg-[#2E3440]">
+                <MDXRemote source={content} options={
                     {
                         mdxOptions: {
                             remarkPlugins: [remarkMath],
                             rehypePlugins: [rehypeKatex, rehypeHighlight],
                         },
                     }
-                } components={{
-                    Figure, Collapsible,
-                    Image: (props) => <Image {...props} />
-                }}
+                } components={MDXComponents}
                 />
-                < p >
-                    <Link href="/">← Back to home</Link>
-                </p>
             </article>
         </main >
     )
@@ -65,5 +75,16 @@ export async function generateStaticParams() {
             }
         })
         return params
+    })
+}
+
+export async function generateMetadata({ params }) {
+    const { lang, postId } = params;
+    const { title, tags, summary } = await getPostData(lang, postId)
+    return genPageMetadata({
+        lang,
+        title,
+        keywords: tags,
+        description: summary
     })
 }

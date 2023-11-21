@@ -22,7 +22,6 @@ export function figure() {
             const attributes = node.attributes || {}
             data.hName = 'Figure';
             data.hProperties = attributes;
-            console.log(node)
         })
     }
 }
