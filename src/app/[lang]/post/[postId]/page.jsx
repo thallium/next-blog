@@ -5,8 +5,8 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { IconHash } from "@tabler/icons-react";
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
-import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
+import rehypePrettyCode from 'rehype-pretty-code';
 
 import { getSortedPostsData, getPostData } from "@/lib/posts"
 import { generateByLang } from "@/lib/util";
@@ -49,12 +49,14 @@ export default async function Page({ params }) {
                     ))
                 }
             </div>
-            <article className="prose-pre:bg-[#2E3440]">
+            <article>
                 <MDXRemote source={content} options={
                     {
                         mdxOptions: {
                             remarkPlugins: [remarkMath, remarkGfm],
-                            rehypePlugins: [[rehypeKatex, { strict: true, throwOnError: true }], rehypeHighlight],
+                            rehypePlugins: [[rehypeKatex, { strict: true, throwOnError: true }], [rehypePrettyCode, {
+                                theme: 'nord'
+                            }]],
                         },
                     }
                 } components={MDXComponents}

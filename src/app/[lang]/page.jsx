@@ -4,7 +4,7 @@ import MDXComponents from "@/app/components/MDXComponents";
 import Posts from "@/app/components/Posts"
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
-import rehypeHighlight from "rehype-highlight";
+import rehypePrettyCode from 'rehype-pretty-code';
 import { generateByLang } from "@/lib/util";
 import { translate } from "@/data/i18n";
 
@@ -18,7 +18,9 @@ export default function page({ params }) {
                     {
                         mdxOptions: {
                             remarkPlugins: [remarkMath],
-                            rehypePlugins: [rehypeKatex, rehypeHighlight],
+                            rehypePlugins: [[rehypeKatex, { strict: true, throwOnError: true }], [rehypePrettyCode, {
+                                theme: 'nord'
+                            }]],
                         },
                     }
                 } components={MDXComponents}
