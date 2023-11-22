@@ -1,5 +1,7 @@
 ---
 title: Portainer
+date: "2022-04-29"
+tags: ["Home Server"]
 ---
 [Portainer](https://www.portainer.io/)是一个Docker和Kubernetes管理软件（本文只涉及Docker)。
 

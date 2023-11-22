@@ -1,5 +1,7 @@
 ---
 title: Nginx Proxy Manager
+date: "2022-04-29"
+tags: ["Home Server"]
 ---
 
 [Nginx Proxy Manager](https://nginxproxymanager.com/)(以下简称NPM)可以实现反向代理（reverse proxy），即只暴露80和443端口然后由代理根据域名将请求发送给对应的服务。NPM集成了Let's Encrypt所以可以很简单的申请到SSL证书。

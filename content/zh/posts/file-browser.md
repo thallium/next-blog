@@ -1,5 +1,7 @@
 ---
 title: File Browser (filebrowser)
+date: "2022-04-29"
+tags: ["Home Server"]
 ---
 
 File Browser是一个网页端文件管理/浏览器，它很轻量但同时拥有丰富的功能。在GitHub上有1.7万的星星。
@@ -39,4 +41,3 @@ services:
 3. `make build`（编译可执行文件，如果你不打算用docker的话编译出来的就直接可以用了，具体用法见`filebrowser -h`）
 4. `docker build . -t thallium54/filebrowser:latest`（构建docker镜像）
 5. `docker push thallium54/filebrowser:latest`（如果在本地用的话可以不push）
-

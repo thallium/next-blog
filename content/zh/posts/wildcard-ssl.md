@@ -1,5 +1,7 @@
 ---
 title: 通配符SSL证书
+date: "2022-04-29"
+tags: ["Home Server"]
 ---
 ## 安装certbot
 

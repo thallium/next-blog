@@ -1,5 +1,7 @@
 ---
 title: Paperless-ngx
+date: "2022-04-29"
+tags: ["Home Server"]
 ---
 
 ## 使用linuxserver.io的镜像

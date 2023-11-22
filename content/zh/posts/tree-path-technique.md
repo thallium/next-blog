@@ -1,5 +1,6 @@
 ---
 title: 树上路径技巧
+date: "2022-04-29"
 categories: [算法笔记]
 tags: []
 ---

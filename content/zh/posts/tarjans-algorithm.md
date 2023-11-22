@@ -1,7 +1,8 @@
 ---
 title: Tarjan算法（强连通，割点，桥）对比总结
+date: "2022-04-29"
 categories: [算法笔记]
-tags: []
+tags: ["图论"]
 ---
 
 Tarjan算法中定义了两个数组：

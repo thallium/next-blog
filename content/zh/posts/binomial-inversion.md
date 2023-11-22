@@ -1,7 +1,8 @@
 ---
 title: 二项式反演
+date: "2022-04-29"
 categories: [算法笔记]
-tags: []
+tags: ["数学", "组合数学"]
 ---
 
 感觉[这篇](https://www.cnblogs.com/GXZlegend/p/11407185.html)讲得不错。

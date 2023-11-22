@@ -1,5 +1,7 @@
 ---
 title: LaTex 插入图片
+date: "2022-04-29"
+tags: ["LaTex"]
 ---
 包
 ```latex
@@ -19,4 +21,3 @@ title: LaTex 插入图片
 - width
 - height
 - angle
-
