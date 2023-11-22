@@ -33,17 +33,16 @@ export default async function Page({ params }) {
     return (
         <main className="max-w-3xl py-3 xl:py-6 prose prose-code:font-normal prose-a:font-normal">
             <h1>{title}</h1>
-            <div className="text-base flex flex-row gap-x-1 mb-2 mt-1 items-center">
-
+            <div className="text-base flex flex-row flex-wrap gap-x-1 mb-2 mt-1 items-center">
                 {
                     date &&
-                    <time>{new Date(date).toISOString().split("T")[0]}</time>
+                    <time className="whitespace-nowrap text-base-content">{new Date(date).toISOString().split("T")[0]}</time>
                 }
                 {
                     (tags && tags.length > 0) &&
                     tags.map(tag => (
-                        <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row items-center no-underline text-neutral-content'>
-                            <IconHash size={18} />
+                        <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row whitespace-nowrap items-center no-underline text-neutral-content'>
+                            <IconHash size={20} />
                             {tag}
                         </Link>
                     ))
