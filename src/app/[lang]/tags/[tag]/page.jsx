@@ -1,29 +1,30 @@
 import Posts from "@/app/components/Posts";
 import { getSortedPostsData, getTags } from "@/lib/posts";
-import { generateStaticParamsWithLang, getTotalPages } from "@/lib/util";
+import { generateByLang, getTotalPages } from "@/lib/util";
 import Pagination from "@/app/components/Pagination";
 import { notFound, redirect } from "next/navigation";
 import { genPageMetadata } from "@/lib/seo";
 
 export default function page({ params }) {
-    /** @type {{lang: string, slug: string[]}} */
-    const { lang, tag } = params;
+    /** @type {{lang: string, tag: string}} */
+    const { lang, tag: tagStr } = params;
     const page = 1;
-    const decodedTag = decodeURIComponent(tag)
-    const totalPages = getTotalPages(lang, decodedTag)
+    const tag = decodeURIComponent(tagStr)
+    const totalPages = getTotalPages(lang, tag)
     if (page <= 0 || page > totalPages) {
         notFound()
     }
     return (
         <>
-            <Posts lang={lang} page={page} tag={decodedTag} />
+            <h1 className="text-4xl font-bold my-6 text-base-content">{tag}</h1>
+            <Posts lang={lang} page={page} tag={tag} />
             <Pagination totalPages={totalPages} />
         </>
     )
 }
 
 export async function generateStaticParams() {
-    return generateStaticParamsWithLang(lang => {
+    return generateByLang(lang => {
         const tags = getTags(lang)
         return tags.map(tag => {
             tag = tag[0]

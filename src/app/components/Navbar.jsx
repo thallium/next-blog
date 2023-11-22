@@ -7,7 +7,7 @@ import LangSwitch from "./LangSwitch"
 export default function Navbar({ lang }) {
     return (
         <header className="bg-base-200 text-base-content">
-            <div className="mx-auto max-w-3xl py-5 px-4 sm:px-6 xl:max-w-3xl xl:px-0 flex items-center justify-between">
+            <div className="mx-auto max-w-3xl py-5 px-4 sm:px-8 xl:px-0 xl:max-w-3xl flex items-center justify-between">
                 <div>
                     <Link href={`/${lang}`}>
                         <div className="flex items-center justify-between">

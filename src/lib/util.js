@@ -1,7 +1,7 @@
 import { config } from "@/data/siteConfig";
 import { getSortedPostsData } from "./posts";
 
-export function generateStaticParamsWithLang(f) {
+export function generateByLang(f) {
     const allParams = config.langs.map(lang => {
         return f(lang)
     }).reduce((allParams, params) => allParams.concat(params), [])

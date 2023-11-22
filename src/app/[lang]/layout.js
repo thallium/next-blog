@@ -55,7 +55,7 @@ export default function RootLayout({ children, params }) {
         <html lang={`${languages[lang].langCode}`}>
             <body className={`${inter.className} `}>
                 <Navbar lang={params.lang} />
-                <div className="min-h-screen max-w-3xl mx-auto px-6 xl:px-0 mt-6">
+                <div className="min-h-screen max-w-3xl mx-auto px-4 sm:px-8 xl:px-0 mt-8 sm:mt-12">
                     {children}
                 </div>
                 <Footer />

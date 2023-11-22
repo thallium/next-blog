@@ -1,5 +1,5 @@
 import Posts from "@/app/components/Posts";
-import { generateStaticParamsWithLang, getTotalPages } from "@/lib/util";
+import { generateByLang, getTotalPages } from "@/lib/util";
 import Pagination from "@/app/components/Pagination";
 import { notFound } from "next/navigation";
 import { genPageMetadata } from "@/lib/seo";
@@ -21,7 +21,7 @@ export default function page({ params }) {
 }
 
 export async function generateStaticParams() {
-    return generateStaticParamsWithLang(lang => {
+    return generateByLang(lang => {
         return [{ lang }]
     })
 }

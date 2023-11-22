@@ -15,6 +15,7 @@ export const languages = {
         langCode: "en",
         dict: {
             recentPosts: "Recent Posts",
+            tags: "Tags",
         },
         navLinks: [
             { href: '/posts', title: 'Posts' },
@@ -26,6 +27,7 @@ export const languages = {
         langCode: "zh-hans",
         dict: {
             recentPosts: "最近文章",
+            tags: "标签",
         },
         navLinks: [
             { href: '/posts', title: '文章' },

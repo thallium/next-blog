@@ -1,5 +1,5 @@
 import Posts from "@/app/components/Posts";
-import { generateStaticParamsWithLang, getTotalPages } from "@/lib/util";
+import { generateByLang, getTotalPages } from "@/lib/util";
 import Pagination from "@/app/components/Pagination";
 import { notFound, redirect } from "next/navigation";
 import { genPageMetadata } from "@/lib/seo";
@@ -27,7 +27,7 @@ export default function page({ params }) {
 }
 
 export async function generateStaticParams() {
-    return generateStaticParamsWithLang(lang => {
+    return generateByLang(lang => {
         const totalPages = getTotalPages(lang)
         const params = Array.from({ length: totalPages }, (_, i) => {
             return {

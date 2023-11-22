@@ -66,8 +66,7 @@ export function getSortedPostsData(lang, tag) {
         return allPostsData.filter(post => {
             return post.tags?.includes(tag)
         })
-    }
-    else {
+    } else {
         return allPostsData;
     }
 }

@@ -9,7 +9,7 @@ import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 
 import { getSortedPostsData, getPostData } from "@/lib/posts"
-import { generateStaticParamsWithLang } from "@/lib/util";
+import { generateByLang } from "@/lib/util";
 
 import MDXComponents from "../../../components/MDXComponents";
 
@@ -18,17 +18,17 @@ import { genPageMetadata } from "@/lib/seo";
 
 /**
  * 
- * @param {{params: }} param0 
+ * @param {{params: {lang: string, postId: string} }} param0 
  * @returns 
  */
 export default async function Page({ params }) {
     const { lang, postId } = params;
-    const posts = getSortedPostsData(lang)
+    const post = getSortedPostsData(lang).find(post => post.id === postId)
 
-    if (!posts.find(post => post.id === postId)) {
-        return notFound()
+    if (!post) {
+        notFound()
     }
-    const { title, date, tags, content } = await getPostData(lang, postId)
+    const { title, date, tags, content } = post;
 
     return (
         <main className="max-w-3xl py-3 xl:py-6 prose prose-code:font-normal prose-a:font-normal">
@@ -65,7 +65,7 @@ export default async function Page({ params }) {
 }
 
 export async function generateStaticParams() {
-    return generateStaticParamsWithLang(lang => {
+    return generateByLang(lang => {
         const posts = getSortedPostsData(lang)
         const params = posts.map(post => {
             return {
@@ -79,7 +79,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
     const { lang, postId } = params;
-    const { title, tags, summary } = await getPostData(lang, postId)
+    const { title, tags, summary } = getPostData(lang, postId) || { title: "Not Found" }
     return genPageMetadata({
         lang,
         title,

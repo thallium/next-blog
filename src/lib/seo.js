@@ -7,6 +7,7 @@ import { siteMetadata } from '@/data/siteConfig'
  * @return {import('next').Metadata}
  */
 export function genPageMetadata({ lang, title, description, ...rest }) {
+    title = title || siteMetadata.title
     return {
         title,
         openGraph: {

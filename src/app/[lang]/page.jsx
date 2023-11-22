@@ -5,7 +5,7 @@ import Posts from "@/app/components/Posts"
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 import rehypeHighlight from "rehype-highlight";
-import { generateStaticParamsWithLang } from "@/lib/util";
+import { generateByLang } from "@/lib/util";
 import { translate } from "@/data/i18n";
 
 export default function page({ params }) {
@@ -31,7 +31,7 @@ export default function page({ params }) {
 }
 
 export async function generateStaticParams() {
-    return generateStaticParamsWithLang(lang => {
+    return generateByLang(lang => {
         return [{ lang }]
     })
 }
