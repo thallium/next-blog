@@ -12,7 +12,7 @@ export default function MobileNav({ lang }) {
                     .map((link) => (
                         <li key={link.title}><Link
                             href={`/${lang}${link.href}`}
-                            className="text-base"
+                            className="text-base whitespace-nowrap"
                         >
                             {link.title}
                         </Link></li>
