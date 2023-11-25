@@ -3,18 +3,13 @@ import { notFound } from "next/navigation";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { IconHash } from "@tabler/icons-react";
-import rehypeKatex from 'rehype-katex'
-import remarkMath from 'remark-math'
-import remarkGfm from "remark-gfm";
-import rehypePrettyCode from 'rehype-pretty-code';
 
 import { getSortedPostsData, getPostData } from "@/lib/posts"
 import { generateByLang } from "@/lib/util";
-
-import MDXComponents from "../../../components/MDXComponents";
+import { MDXComponents, mdxOptions } from "@/data/siteConfig";
+import { genPageMetadata } from "@/lib/seo";
 
 import "@/app/tokyo-night-dark.css"
-import { genPageMetadata } from "@/lib/seo";
 
 /**
  * 
@@ -31,7 +26,7 @@ export default async function Page({ params }) {
     const { title, date, tags, content } = post;
 
     return (
-        <main className="max-w-3xl py-3 xl:py-6 prose prose-code:font-normal prose-a:font-normal">
+        <main className="max-w-3xl py-3 xl:py-6 prose prose-code:font-normal">
             <h1>{title}</h1>
             <div className="text-base flex flex-row flex-wrap gap-x-1 mb-2 mt-1 items-center">
                 {
@@ -49,17 +44,7 @@ export default async function Page({ params }) {
                 }
             </div>
             <article>
-                <MDXRemote source={content} options={
-                    {
-                        mdxOptions: {
-                            remarkPlugins: [remarkMath, remarkGfm],
-                            rehypePlugins: [[rehypeKatex, { strict: true, throwOnError: true }], [rehypePrettyCode, {
-                                theme: 'nord'
-                            }]],
-                        },
-                    }
-                } components={MDXComponents}
-                />
+                <MDXRemote source={content} options={{ mdxOptions }} components={MDXComponents} />
             </article>
         </main >
     )
