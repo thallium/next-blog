@@ -101,12 +101,16 @@ int main() {
 
 我们需要单点修改然后二阶前缀和，二阶前缀和可以拆成两个前缀和：
 
-$$b_i=\sum_1^ia_i, c_i = \sum_1^ib_i$$
+$$
+b_i=\sum_1^ia_i, c_i = \sum_1^ib_i
+$$
 
-$$\begin{aligned}
+$$
+\begin{aligned}
     c_i &= i a_1 + (i-1)a_2 + \dots+2a_{i-1}+a_i\\\
     &= (i+1)(a_1+a_2+\dots+a_i) - (a_1+2a_2+\dots+ia_i)
-\end{aligned}$$
+\end{aligned}
+$$
 
 维护$a_i$和$ia_i$的前缀和即可。
 

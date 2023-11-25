@@ -17,15 +17,29 @@ tags:
 $dp_{u, 0}$代表当u不为路径的端点的时候，u 的子树里最少的路径的数目，$dp_{u, 1}$代表当u为路径的端点的时候，u 的子树里最少的路径的数目。
 
 设$v$为u的儿子，状态转移时u不为端点的情况可以是之前u不为端点的情况加上v不为端点的情况，即:
-$$dp_{u, 0}\coloneqq dp_{u, 0}+dp_{v, 0}$$
+
+$$
+dp_{u, 0}\coloneqq dp_{u, 0}+dp_{v, 0}
+$$
+
 也可以是以u为端点的路与以v为端点 的路连成一条路，即:
-$$dp_{u, 0}\coloneqq dp_{u, 1}+dp_{v, 1}-1$$
+
+$$
+dp_{u, 0}\coloneqq dp_{u, 1}+dp_{v, 1}-1
+$$
+
 u为端点的情况类似，可以是之前u为端点的情况加上v不为端点的情况，即：
-$$dp_{u, 1}\coloneqq dp_{u, 1}+dp_{v, 0}$$
+$$
+dp_{u, 1}\coloneqq dp_{u, 1}+dp_{v, 0}
+$$
 也可以是前面所有儿子的不以儿子为端点的路径加上以v为端点的路径,即：
-$$dp_{u, 1}\coloneqq sum+dp_{v, 1}$$
+$$
+dp_{u, 1}\coloneqq sum+dp_{v, 1}
+$$
 综上所述：
-$$\begin{align*}  dp_{u, 0}&\coloneqq \min(dp_{u, 0}+dp_{v, 0}, dp_{u, 1}+dp_{v, 1}-1)\\\ dp_{u, 1}&\coloneqq  \min(dp_{u, 1}+dp_{v, 0}, sum+dp_{v, 1})\end{align*}$$
+$$
+\begin{align*}  dp_{u, 0}&\coloneqq \min(dp_{u, 0}+dp_{v, 0}, dp_{u, 1}+dp_{v, 1}-1)\\\ dp_{u, 1}&\coloneqq  \min(dp_{u, 1}+dp_{v, 0}, sum+dp_{v, 1})\end{align*}
+$$
 
 如果要记录方案的话只先在dp的过程中记录经过u的路径往下走的儿子，然后再跑一遍dfs构建路径。
 

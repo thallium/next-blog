@@ -332,7 +332,9 @@ int main() {
 ## H. Hot Black Hot White
 
 首先不难证明 $\operatorname{concat}(A_i, A_j)\bmod 3 = (A_i + A_j) \bmod 3$。于是题目中的等式就变成了:
-$$\begin{align*} \text{concat}(A_i, A_j) \times \text{concat}(A_j, A_i) + A_i A_j & \equiv Z \mod 3 \\\ (A_i + A_j) (A_i + A_j) + A_i A_j & \equiv Z \mod 3 \\\ A_i^2 + 2 A_i A_j + A_j^2 + A_i A_j & \equiv Z \mod 3 \\\ A_i^2 + A_j^2 + 3 A_i A_j & \equiv Z \mod 3 \\\ A_i^2 + A_j^2 & \equiv Z \mod 3\end{align*}$$
+$$
+\begin{align*} \text{concat}(A_i, A_j) \times \text{concat}(A_j, A_i) + A_i A_j & \equiv Z \mod 3 \\\ (A_i + A_j) (A_i + A_j) + A_i A_j & \equiv Z \mod 3 \\\ A_i^2 + 2 A_i A_j + A_j^2 + A_i A_j & \equiv Z \mod 3 \\\ A_i^2 + A_j^2 + 3 A_i A_j & \equiv Z \mod 3 \\\ A_i^2 + A_j^2 & \equiv Z \mod 3\end{align*}
+$$
 
 然后可以发现 $A_i^2\bmod 3$ 只可能是0或者1。于是我们得到两种情况：
 - 如果 $A_i^2\bmod 3 = 0$ 的石头的个数小于等于$\frac N 2$的话，将所有 $A_i^2\bmod 3 = 0$ 的时候分到一组并取$Z=2$就可以避免上述等式成立。
