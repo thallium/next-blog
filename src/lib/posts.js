@@ -22,6 +22,7 @@ const postsRootDirectory = path.join(process.cwd(), 'content')
  * @returns {PostData[]}
  */
 export function getSortedPostsData(lang, tag) {
+    console.log("get");
     const postsDirectory = path.join(postsRootDirectory, lang, 'posts')
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory)
