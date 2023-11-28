@@ -4,8 +4,8 @@ date: 2019-09-15
 title: York Univeristy programming contest 第一场题解
 categories: [比赛题解, 题解]
 tags:
-layout: post
 math: true
+layout: post
 ---
 
 这是一场关于身残志坚的比赛。那天晚上切菜时切着手了，去了医院，没想到挂个急诊还要等这么久，心想晚上的比赛肯定泡汤了，等待之余想起自己包里还有iPad和蓝牙键盘，虽然比赛已经开始半小时了，而且自己只有9根指头能用，就当玩玩吧，于是我连上键盘，打开koder，在iPad上打起了比赛，没想到最后出了三个题，排名第三，手指和比赛都保住了……
