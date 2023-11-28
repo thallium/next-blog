@@ -16,14 +16,14 @@ import "@/app/tokyo-night-dark.css"
  * @param {{params: {lang: string, postId: string} }} param0 
  * @returns 
  */
-export default async function Page({ params }) {
+export default function Page({ params }) {
     const { lang, postId } = params;
-    const post = getSortedPostsData(lang).find(post => post.id === postId)
+    const post = getPostData(lang, postId)
 
     if (!post) {
         notFound()
     }
-    const { title, date, tags, content } = post;
+    const { title, date, _tags: tags, body } = post;
 
     return (
         <main className="max-w-3xl py-3 xl:py-6 prose prose-code:font-normal">
@@ -44,7 +44,7 @@ export default async function Page({ params }) {
                 }
             </div>
             <article>
-                <MDXRemote source={content} options={{ mdxOptions }} components={MDXComponents} />
+                <MDXRemote source={body.raw} options={{ mdxOptions }} components={MDXComponents} />
             </article>
         </main >
     )
