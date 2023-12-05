@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { IconHash } from "@tabler/icons-react";
+import { Hash } from 'lucide-react';
 
 import { getSortedPostsData, getPostData } from "@/lib/posts"
 import { generateByLang } from "@/lib/util";
@@ -27,7 +27,7 @@ export default function Page({ params }) {
 
     return (
         <main className="max-w-3xl py-3 xl:py-6">
-            <h1 className="text-4xl font-bold">{title}</h1>
+            <h1 className="text-4xl font-bold text-base-content">{title}</h1>
             <div className="flex flex-row flex-wrap gap-x-1 my-4 items-center">
                 {
                     date &&
@@ -37,7 +37,7 @@ export default function Page({ params }) {
                     (tags && tags.length > 0) &&
                     tags.map(tag => (
                         <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row whitespace-nowrap items-center text-neutral-content'>
-                            <IconHash size={20} />
+                            <Hash size={18} />
                             {tag}
                         </Link>
                     ))

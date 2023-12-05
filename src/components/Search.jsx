@@ -8,10 +8,10 @@ import {
     CommandList,
     CommandLoading,
 } from "@/components/ui/command"
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
 import FlexSearch from "flexsearch"
 import { useRouter } from "next/navigation";
+import { Search as SearchIcon } from "lucide-react"
 
 const indexes = {}
 
@@ -78,10 +78,6 @@ export default function Search({ lang }) {
             return;
         }
         const pageIndex = indexes[lang];
-        console.log(pageIndex.search(search, 5, {
-            enrich: true,
-            suggest: true
-        }))
         const pageResults = pageIndex.search(search, 5, {
             enrich: true,
             suggest: true
@@ -92,7 +88,7 @@ export default function Search({ lang }) {
 
     return (
         <>
-            <MagnifyingGlassIcon onClick={() => setOpen((open) => !open)} className="h-6 w-6" />
+            <SearchIcon onClick={() => setOpen((open) => !open)} className="h-6 w-6" />
 
             <CommandDialog open={open} onOpenChange={setOpen}>
                 <CommandInput onValueChange={doSearch} placeholder="Search blog posts..." />

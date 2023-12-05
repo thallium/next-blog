@@ -1,7 +1,7 @@
 import { getTags } from "@/lib/posts"
 import { generateByLang } from "@/lib/util";
 import Link from "next/link";
-import { IconHash } from "@tabler/icons-react";
+import { Hash } from 'lucide-react';
 import { genPageMetadata } from "@/lib/seo";
 import { translate } from "@/data/i18n";
 
@@ -16,7 +16,7 @@ export default function page({ params }) {
                     tags.map(tag => (
                         <li key={tag[0]} className="mb-4">
                             <Link href={`/${lang}/tags/${tag[0]}`} className="flex-row items-center">
-                                <IconHash size={16} className="inline" />
+                                <Hash size={16} className="inline" />
                                 {tag[0]}
                                 <span className="badge badge-secondary ml-1">
                                     {tag[1]}

@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link';
-import { IconHash } from '@tabler/icons-react';
+import { Hash } from 'lucide-react';
 
 /**
  * import { PostData } from "../../lib/posts.js";
@@ -23,7 +23,7 @@ export default function ListItem({ post, lang }) {
                     (tags && tags.length > 0) &&
                     tags.map(tag => (
                         <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row whitespace-nowrap items-center no-underline text-neutral-content'>
-                            <IconHash size={20} />
+                            <Hash size={18} />
                             {tag}
                         </Link>
                     ))
