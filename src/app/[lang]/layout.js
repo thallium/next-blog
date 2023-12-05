@@ -1,5 +1,5 @@
-import Navbar from "@/app/components/Navbar"
-import Footer from "@/app/components/Footer"
+import Navbar from "@/components/Navbar"
+import Footer from "@/components/Footer"
 import { config, languages } from "@/data/siteConfig"
 import { notFound } from "next/navigation"
 import { Inter } from "next/font/google"

@@ -1,5 +1,5 @@
-import Figure from "@/app/components/Figure";
-import Collapsible from "@/app/components/Collapsible";
+import Figure from "@/components/Figure";
+import Collapsible from "@/components/Collapsible";
 import Image from "next/image";
 
 import rehypeKatex from 'rehype-katex'

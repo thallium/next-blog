@@ -1,6 +1,6 @@
-import Posts from "@/app/components/Posts";
+import Posts from "@/components/Posts";
 import { generateByLang, getTotalPages } from "@/lib/util";
-import Pagination from "@/app/components/Pagination";
+import Pagination from "@/components/Pagination";
 import { notFound } from "next/navigation";
 import { genPageMetadata } from "@/lib/seo";
 

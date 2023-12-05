@@ -1,7 +1,7 @@
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { readContent } from "@/lib/posts"
 import { MDXComponents, mdxOptions } from "@/data/siteConfig";
-import Posts from "@/app/components/Posts"
+import Posts from "@/components/Posts"
 import { generateByLang } from "@/lib/util";
 import { translate } from "@/data/i18n";
 
