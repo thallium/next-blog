@@ -3,8 +3,8 @@ import Collapsible from "@/app/components/Collapsible";
 import Image from "next/image";
 
 import rehypeKatex from 'rehype-katex'
-import remarkMath from 'remark-math'
-import remarkGfm from "remark-gfm";
+import remarkMath from 'remark-math-old'
+import remarkGfm from "remark-gfm-old";
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug'

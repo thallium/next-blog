@@ -3,6 +3,7 @@ import { siteMetadata } from "@/data/siteConfig"
 import { languages } from "@/data/siteConfig"
 import MobileNav from "./MobileNav"
 import LangSwitch from "./LangSwitch"
+import Search from "./Search"
 
 export default function Navbar({ lang }) {
     return (
@@ -29,6 +30,7 @@ export default function Navbar({ lang }) {
                                 {link.title}
                             </Link>
                         ))}
+                    <Search lang={lang} />
                     <LangSwitch />
                     <MobileNav lang={lang} />
                 </div>

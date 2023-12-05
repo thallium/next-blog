@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { allDocuments } from 'contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 
 
@@ -11,7 +11,7 @@ import { compareDesc } from 'date-fns'
  * @returns {import('contentlayer/generated').Post[]}
  */
 export function getSortedPostsData(lang, tag) {
-    const allPostsData = allDocuments
+    const allPostsData = allPosts
         .filter(post => post.lang === lang && !post.draft)
         .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
 
