@@ -25,7 +25,7 @@ export default function Navbar({ lang }) {
                             <Link
                                 key={link.title}
                                 href={`/${lang}${link.href}`}
-                                className="hidden sm:block whitespace-nowrap"
+                                className="hidden sm:block whitespace-nowrap font-medium"
                             >
                                 {link.title}
                             </Link>
