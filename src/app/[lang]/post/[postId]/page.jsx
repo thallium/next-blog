@@ -26,9 +26,9 @@ export default function Page({ params }) {
     const { title, date, _tags: tags, body } = post;
 
     return (
-        <main className="max-w-3xl py-3 xl:py-6 prose prose-code:font-normal">
-            <h1>{title}</h1>
-            <div className="text-base flex flex-row flex-wrap gap-x-1 mb-2 mt-1 items-center">
+        <main className="max-w-3xl py-3 xl:py-6">
+            <h1 className="text-4xl font-bold">{title}</h1>
+            <div className="flex flex-row flex-wrap gap-x-1 my-4 items-center">
                 {
                     date &&
                     <time className="whitespace-nowrap text-base-content">{new Date(date).toISOString().split("T")[0]}</time>
@@ -36,14 +36,14 @@ export default function Page({ params }) {
                 {
                     (tags && tags.length > 0) &&
                     tags.map(tag => (
-                        <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row whitespace-nowrap items-center no-underline text-neutral-content'>
+                        <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row whitespace-nowrap items-center text-neutral-content'>
                             <IconHash size={20} />
                             {tag}
                         </Link>
                     ))
                 }
             </div>
-            <article>
+            <article className="prose prose-code:font-normal">
                 <MDXRemote source={body.raw} options={{ mdxOptions }} components={MDXComponents} />
             </article>
         </main >

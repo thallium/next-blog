@@ -45,7 +45,6 @@ export function generateMetadata({ params }) {
 
 const inter = Inter({ subsets: ['latin'] })
 
-// <body className={`${inter.className} text-[#222222] bg-[#fff] dark:bg-[#292a2d] dark:text-[#A9A9B3]`}>
 export default function RootLayout({ children, params }) {
     const { lang } = params;
     if (!config.langs.includes(lang)) {
