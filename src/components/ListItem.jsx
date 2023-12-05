@@ -8,7 +8,7 @@ import { IconHash } from '@tabler/icons-react';
  * @returns 
  */
 export default function ListItem({ post, lang }) {
-    const { id, title, date, summary, keywords, tags, categories } = post;
+    const { id, title, date, summary, keywords, _tags: tags, categories } = post;
     // const formattedDate = Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date);
     return (
         <li className="mt-3 py-3 text-2xl">
