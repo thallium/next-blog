@@ -8,7 +8,7 @@ import { compareDesc } from 'date-fns'
 /**
  * @param {string} lang
  * @param {string?} tag
- * @returns {import('contentlayer/generated').Post[]}
+ * @returns {import('.contentlayer/generated/types').Post[]}
  */
 export function getSortedPostsData(lang, tag) {
     const allPostsData = allPosts
@@ -26,7 +26,7 @@ export function getSortedPostsData(lang, tag) {
  * 
  * @param {string} lang 
  * @param {string} id 
- * @returns {PostData}
+ * @returns {import('.contentlayer/generated/types').Post}
  */
 export function getPostData(lang, id) {
     try {
