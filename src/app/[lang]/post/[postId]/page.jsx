@@ -43,7 +43,7 @@ export default function Page({ params }) {
                     ))
                 }
             </div>
-            <article className="prose prose-code:font-normal max-w-full">
+            <article className="prose prose-code:font-normal max-w-full [&>.katex-display]:overflow-auto">
                 <MDXRemote source={body.raw} options={{ mdxOptions }} components={MDXComponents} />
             </article>
         </main >
