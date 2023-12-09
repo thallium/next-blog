@@ -31,7 +31,7 @@ const computedFields = {
         type: 'list',
         of: { type: 'string' },
         resolve: (doc) => {
-            const cat = doc.categories ?? [doc.category]
+            const cat = doc.categories ?? (doc.category ? [doc.category] : [])
             const tags = doc.tags || []
             return [...new Set([...tags, ...cat])].sort()
         }

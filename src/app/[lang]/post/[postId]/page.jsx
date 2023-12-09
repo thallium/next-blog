@@ -9,8 +9,6 @@ import { generateByLang } from "@/lib/util";
 import { MDXComponents, mdxOptions } from "@/data/siteConfig";
 import { genPageMetadata } from "@/lib/seo";
 
-import "@/app/tokyo-night-dark.css"
-
 /**
  * 
  * @param {{params: {lang: string, postId: string} }} param0 
@@ -27,23 +25,23 @@ export default function Page({ params }) {
 
     return (
         <main className="max-w-3xl py-3 xl:py-6">
-            <h1 className="text-4xl font-bold text-base-content">{title}</h1>
+            <h1 className="text-4xl font-bold">{title}</h1>
             <div className="flex flex-row flex-wrap gap-x-1 my-4 items-center">
                 {
                     date &&
-                    <time className="whitespace-nowrap text-base-content">{new Date(date).toISOString().split("T")[0]}</time>
+                    <time className="whitespace-nowrap">{new Date(date).toISOString().split("T")[0]}</time>
                 }
                 {
                     (tags && tags.length > 0) &&
                     tags.map(tag => (
-                        <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row whitespace-nowrap items-center text-neutral-content'>
+                        <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row whitespace-nowrap items-center text-secondary-foreground'>
                             <Hash size={18} />
                             {tag}
                         </Link>
                     ))
                 }
             </div>
-            <article className="prose prose-code:font-normal max-w-full [&>.katex-display]:overflow-auto">
+            <article className="prose prose-code:font-normal max-w-full">
                 <MDXRemote source={body.raw} options={{ mdxOptions }} components={MDXComponents} />
             </article>
         </main >

@@ -1,5 +1,14 @@
 'use client'
 
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 import { Languages } from "lucide-react";
 import { config, languages } from "@/data/siteConfig";
 import Link from "next/link";
@@ -9,17 +18,19 @@ export default function LangSwitch() {
     const pathname = usePathname().split('/')
     const suffix = pathname.slice(2).join('/')
     return (
-        <div className="dropdown dropdown-end">
-            <Languages tabIndex={0} className="h-6 w-6 cursor-pointer" />
-            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow rounded-box text-base bg-base-200">
+        <DropdownMenu>
+            <DropdownMenuTrigger>
+                <Languages className="h-6 w-6 cursor-pointer" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent sideOffset={20} className="bg-header text-foreground">
                 {
                     config.langs.map(lang => (
-                        <li key={lang}>
+                        <DropdownMenuItem key={lang}>
                             <Link href={`/${lang}/${suffix}`} >{languages[lang].name}</Link>
-                        </li>
+                        </DropdownMenuItem>
                     ))
                 }
-            </ul>
-        </div>
+            </DropdownMenuContent>
+        </DropdownMenu>
     )
 }

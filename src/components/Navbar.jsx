@@ -7,7 +7,7 @@ import Search from "./Search"
 
 export default function Navbar({ lang }) {
     return (
-        <header className="bg-base-200 text-base-content">
+        <header className="bg-header">
             <div className="mx-auto max-w-3xl py-5 px-4 sm:px-8 xl:px-0 xl:max-w-3xl flex items-center justify-between">
                 <div>
                     <Link href={`/${lang}`}>

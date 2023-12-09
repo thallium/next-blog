@@ -1,17 +1,22 @@
-import Script from "next/script";
+import { ChevronsUpDown } from "lucide-react"
+import {
+  Collapsible as Collapse,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
 
 export default function Collapsible({ children, title, isCollapsed = true }) {
   return (
-    <>
-      <div className="collapse collapse-arrow bg-secondary">
-        <input type="checkbox" />
-        <div className="collapse-title text-xl">
+    <Collapse defaultOpen={!isCollapsed}>
+      <CollapsibleTrigger className="flex items-center bg-secondary rounded-lg justify-between w-full p-4">
+        <h4 className="not-prose text-lg">
           {title}
-        </div>
-        <div className="collapse-content overflow-auto">
-          {children}
-        </div>
-      </div>
-    </>
+        </h4>
+        <ChevronsUpDown />
+      </CollapsibleTrigger>
+      <CollapsibleContent >
+        {children}
+      </CollapsibleContent>
+    </Collapse>
   )
 }

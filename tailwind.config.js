@@ -1,52 +1,97 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ["class"],
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,jsx}',
+    './components/**/*.{js,jsx}',
+    './app/**/*.{js,jsx}',
+    './src/**/*.{js,jsx}',
   ],
-  daisyui: {
-    themes: [
-      {
-        mynord: {
-          "color-scheme": "light",
-          "primary": "#5E81AC",
-          "secondary": "#D8DEE9",
-          "accent": "#88C0D0",
-          "neutral-content": "#4C566A",
-          "neutral": "#D8DEE9",
-          "base-100": "#ECEFF4",
-          "base-200": "#E5E9F0",
-          "base-300": "#D8DEE9",
-          "base-content": "#2E3440",
-          "info": "#B48EAD",
-          "success": "#A3BE8C",
-          "warning": "#EBCB8B",
-          "error": "#BF616A",
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        header: "hsl(var(--header))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': 'hsl(var(--foreground))',
+            '--tw-prose-bold': 'hsl(var(--foreground))',
+            '--tw-prose-headings': 'hsl(var(--foreground))',
+            '--tw-prose-links': 'hsl(var(--foreground))',
+            '--tw-prose-code': 'hsl(var(--foreground))',
+            '--tw-prose-quote-borders': 'hsl(var(--foreground))',
+
+            '--tw-prose-quotes': 'hsl(var(--secondary-foreground))',
+            '--tw-prose-captions': 'hsl(var(--secondary-foreground))',
+            '--tw-prose-bullets': 'hsl(var(--secondary-foreground))',
+            '--tw-prose-counters': 'hsl(var(--secondary-foreground))',
+          }
         }
       },
-      {
-        panrdark: {
-          "color-scheme": "dark",
-          "primary": "#9FE88D",
-          "secondary": "#3b3d42",
-          "accent": "#C792E9",
-          "neutral": "#1c212b",
-          "neutral-content": "#696a70",
-          "base-100": "#292a2d",
-          "base-200": "#252627",
-          "base-content": "#a9a9b3",
-          "info": "#28ebff",
-          "success": "#62efbd",
-          "warning": "#efd057",
-          "error": "#ffae9b",
-        }
-      }
-    ],
-    "darkTheme": "panrdark"
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),
-    require("daisyui"),
+    require("tailwindcss-animate")
   ],
 }

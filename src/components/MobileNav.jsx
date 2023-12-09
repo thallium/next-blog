@@ -1,23 +1,37 @@
 import { Menu } from "lucide-react"
 import { languages } from "@/data/siteConfig"
 import Link from "next/link"
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export default function MobileNav({ lang }) {
     return (
-        <div className="dropdown dropdown-end sm:hidden text-base-content">
-            <Menu tabIndex={0} />
-            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-md">
-                {languages[lang].navLinks
-                    .filter((link) => link.href !== '/')
-                    .map((link) => (
-                        <li key={link.title}><Link
-                            href={`/${lang}${link.href}`}
-                            className="text-base whitespace-nowrap font-medium"
-                        >
-                            {link.title}
-                        </Link></li>
-                    ))}
-            </ul>
-        </div>
+        <DropdownMenu>
+            <DropdownMenuTrigger>
+                <Menu className="h-6 w-6 cursor-pointer sm:hidden" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent sideOffset={20} className="bg-header">
+                {
+                    languages[lang].navLinks
+                        .filter((link) => link.href !== '/')
+                        .map((link) => (
+                            <DropdownMenuItem key={link.title}>
+                                <Link
+                                    href={`/${lang}${link.href}`}
+                                    className="text-base whitespace-nowrap"
+                                >
+                                    {link.title}
+                                </Link>
+                            </DropdownMenuItem>
+                        ))
+                }
+            </DropdownMenuContent>
+        </DropdownMenu>
     )
 }

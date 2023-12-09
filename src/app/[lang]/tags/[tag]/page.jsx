@@ -16,7 +16,7 @@ export default function page({ params }) {
     }
     return (
         <>
-            <h1 className="text-4xl font-bold my-6 text-base-content">{tag}</h1>
+            <h1 className="text-4xl font-bold my-6">{tag}</h1>
             <Posts lang={lang} page={page} tag={tag} />
             <Pagination totalPages={totalPages} />
         </>
