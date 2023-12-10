@@ -88,7 +88,7 @@ export default function Search({ lang }) {
 
     return (
         <>
-            <SearchIcon onClick={() => setOpen((open) => !open)} className="h-6 w-6" />
+            <SearchIcon onClick={() => setOpen((open) => !open)} className="h-6 w-6 cursor-pointer" />
 
             <CommandDialog open={open} onOpenChange={setOpen}>
                 <CommandInput onValueChange={doSearch} placeholder="Search blog posts..." />

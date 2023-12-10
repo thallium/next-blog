@@ -9,6 +9,9 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug'
 
+import OneLight from "../app/OneLight.json";
+import TokyoNight from "../app/TokyoNight.json";
+
 export const siteMetadata = {
     title: "Thallium54",
     author: 'Thallium54',
@@ -57,7 +60,12 @@ export const mdxOptions = {
     remarkPlugins: [remarkMath, remarkGfm],
     rehypePlugins: [
         [rehypeKatex, { strict: true, throwOnError: true }],
-        [rehypePrettyCode, { theme: 'nord' }],
+        [rehypePrettyCode, {
+            theme: {
+                dark: TokyoNight,
+                light: OneLight
+            }
+        }],
         rehypeSlug,
         [rehypeAutolinkHeadings, {
             behavior: 'append',

@@ -34,7 +34,7 @@ export default function Page({ params }) {
                 {
                     (tags && tags.length > 0) &&
                     tags.map(tag => (
-                        <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row whitespace-nowrap items-center text-secondary-foreground'>
+                        <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row whitespace-nowrap items-center text-primary-foreground'>
                             <Hash size={18} />
                             {tag}
                         </Link>
