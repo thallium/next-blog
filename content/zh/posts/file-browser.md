@@ -13,7 +13,7 @@ File Browser是一个网页端文件管理/浏览器，它很轻量但同时拥�
 Nextcloud功能很强大，但很多人只把他当作云存储用所以就显得比较臃肿。而且它的网页端用起来感觉有点慢而且播放器经常出bug。IOS端也卡卡的（可能也与我手机比较老有关），网页端在手机上更不好用。最重要的一点：文件单独存放在一个地方而且是以www-data用户管理，所以如果你要在服务器上导入、导出、下载文件的话来回切换用户很不方便。所以我就一直在找一个替代Nextcloud的方案，尝试了各种方案之后，File Browser也许是最符合我需求的。（主要痛点就是视频封面，其实File Browser也没有，但有别人的fork加上了，然后我又完善了一下并传到了docker hub上）
 
 ## 安装
-```yaml
+```yaml title="docker-compose.yaml"
 version: '3'
 services:
   app:
