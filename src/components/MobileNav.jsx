@@ -24,7 +24,7 @@ export default function MobileNav({ lang }) {
                             <DropdownMenuItem key={link.title}>
                                 <Link
                                     href={`/${lang}${link.href}`}
-                                    className="text-base whitespace-nowrap"
+                                    className="whitespace-nowrap text-foreground"
                                 >
                                     {link.title}
                                 </Link>
