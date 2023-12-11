@@ -105,8 +105,9 @@
   body {
     @apply bg-background text-foreground;
   }
-  .katex-display {
-    overflow: auto;
+  /* Somehow using class selector won't get this bundled, this is a workaround */
+  span[class="katex-display"] {
+    overflow-x: auto;
   }
   figure[data-rehype-pretty-code-figure] {
     @apply my-0;
