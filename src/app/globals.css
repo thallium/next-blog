@@ -123,4 +123,7 @@
     text-align: right;
     color: hsl(var(--secondary-foreground))
   }
+  html {
+    scroll-padding-top: 112px;
+  }
 }
