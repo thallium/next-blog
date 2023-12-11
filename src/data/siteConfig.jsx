@@ -21,6 +21,7 @@ export const siteMetadata = {
 export const config = {
     postPerPage: 7,
     langs: ["en", "zh"],
+    footer: "© 2023 Powered by Next.js | Theme inspired by Tokyo Night"
 }
 
 export const languages = {

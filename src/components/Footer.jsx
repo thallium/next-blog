@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react';
-import { siteMetadata } from '@/data/siteConfig';
+import { siteMetadata, config } from '@/data/siteConfig';
 
 export default function Footer() {
     return (
@@ -8,9 +8,7 @@ export default function Footer() {
                 <ChevronRight className="h-6 w-6" />
                 <p className='font-bold'>{siteMetadata.title}</p>
             </div>
-            <p className="md:place-self-center md:justify-self-end">
-                © 2023 Powered by Next.js | Theme inspired by Panr
-            </p>
+            <p className="md:place-self-center md:justify-self-end">{config.footer}</p>
         </footer>
     )
 }
