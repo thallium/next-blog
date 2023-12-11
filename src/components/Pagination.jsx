@@ -15,8 +15,8 @@ export default function Pagination({ totalPages }) {
     }
 
     const PaginationItem = (i) => (
-        <Link key={i} href={`${basePath}/page/${i}`} className={cn("h-8 w-8 flex items-center justify-center hover:border rounded border-foreground",
-            { "bg-secondary": i == currentPage })}>
+        <Link key={i} href={basePath + (i > 1 ? `/page/${i}` : "")} className={cn("h-8 w-8 flex items-center justify-center hover:border rounded border-foreground",
+            { "bg-accent": i == currentPage })}>
             <p>
                 {i}
             </p>
@@ -54,41 +54,5 @@ export default function Pagination({ totalPages }) {
         <nav className="flex flex-row items-center justify-center gap-2">
             {pages}
         </nav>
-        // <ToggleGroup type="single" size="sm" value={page} onValueChange={(p) => {
-        //     setPage(p)
-        //     if (p !== currentPage) {
-        //         router.push(`${basePath}/page/${p}`)
-        //     }
-        // }}>
-        //     {
-        //         Array(totalPages).fill(0).map((_, i) => (
-        //             <ToggleGroupItem key={i} value={`${i + 1}`} className="h-8 w-8">
-        //                 {i + 1}
-        //                 {/* <Link href={`${basePath}/page/${i + 1}`}>
-        //                     <button className="btn btn-secondary">
-        //                         {i + 1}
-        //                     </button>
-        //                 </Link> */}
-        //             </ToggleGroupItem>
-        //         ))
-        //     }
-        // </ToggleGroup>
-        // <div className="flex items-center justify-center">
-        //     <nav className="join">
-        //         <Link href={basePath + (currentPage == 2 ? "" : `/page/${Math.max(currentPage - 1, 0)}`)}
-        //             className={`pointer-events-${hasPrev ? "auto" : "none"}`}
-        //         >
-        //             <button className="join-item btn btn-secondary" disabled={!hasPrev}> « </button>
-        //         </Link>
-        //         <span className="join-item btn btn-secondary pointer-events-none" >
-        //             Page {currentPage} of {totalPages}
-        //         </span>
-        //         <Link href={`${basePath}/page/${Math.min(currentPage + 1, totalPages)}`}
-        //             className={`pointer-events-${hasNext ? "auto" : "none"}`}
-        //         >
-        //             <button className="join-item btn btn-secondary" disabled={!hasNext}> » </button>
-        //         </Link>
-        //     </nav>
-        // </div>
     )
 }

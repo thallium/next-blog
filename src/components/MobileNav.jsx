@@ -16,7 +16,7 @@ export default function MobileNav({ lang }) {
             <DropdownMenuTrigger>
                 <Menu className="h-6 w-6 cursor-pointer sm:hidden" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent sideOffset={20} className="bg-header">
+            <DropdownMenuContent sideOffset={20}>
                 {
                     languages[lang].navLinks
                         .filter((link) => link.href !== '/')

@@ -9,8 +9,8 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug'
 
-import OneLight from "../app/OneLight.json";
 import TokyoNight from "../app/TokyoNight.json";
+import TokyoNightLight from "../app/TokyoNightLight.json"
 
 export const siteMetadata = {
     title: "Thallium54",
@@ -63,7 +63,7 @@ export const mdxOptions = {
         [rehypePrettyCode, {
             theme: {
                 dark: TokyoNight,
-                light: OneLight
+                light: TokyoNightLight
             }
         }],
         rehypeSlug,
@@ -76,7 +76,7 @@ export const mdxOptions = {
             properties: {
                 ariaHidden: true,
                 tabIndex: -1,
-                className: "opacity-0 no-underline text-neutral-content group-hover:opacity-100"
+                className: "opacity-0 no-underline text-muted-foreground group-hover:opacity-100"
             }
         }],
     ],

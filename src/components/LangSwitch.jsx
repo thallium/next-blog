@@ -22,7 +22,7 @@ export default function LangSwitch() {
             <DropdownMenuTrigger>
                 <Languages className="h-6 w-6 cursor-pointer" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent sideOffset={20} className="bg-header text-foreground">
+            <DropdownMenuContent sideOffset={20} className="text-foreground">
                 {
                     config.langs.map(lang => (
                         <DropdownMenuItem key={lang}>

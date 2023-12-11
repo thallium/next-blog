@@ -22,7 +22,7 @@ export default function ListItem({ post, lang }) {
                 {
                     (tags && tags.length > 0) &&
                     tags.map(tag => (
-                        <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row whitespace-nowrap items-center no-underline text-neutral-content'>
+                        <Link key={tag} href={`/${lang}/tags/${tag}`} className='flex flex-row whitespace-nowrap items-center no-underline text-muted-foreground'>
                             <Hash size={18} />
                             {tag}
                         </Link>

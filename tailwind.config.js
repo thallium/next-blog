@@ -20,9 +20,11 @@ module.exports = {
         border: "oklch(var(--border))",
         input: "oklch(var(--input))",
         ring: "oklch(var(--ring))",
-        header: "oklch(var(--header))",
         background: "oklch(var(--background))",
-        foreground: "oklch(var(--foreground))",
+        foreground: {
+          DEFAULT: "oklch(var(--foreground))",
+          200: "oklch(var(--foreground-200))",
+        },
         primary: {
           DEFAULT: "oklch(var(--primary))",
           foreground: "oklch(var(--primary-foreground))",
@@ -81,10 +83,10 @@ module.exports = {
             '--tw-prose-code': 'oklch(var(--foreground))',
             '--tw-prose-quote-borders': 'oklch(var(--foreground))',
 
-            '--tw-prose-quotes': 'oklch(var(--primary-foreground))',
-            '--tw-prose-captions': 'oklch(var(--primary-foreground))',
-            '--tw-prose-bullets': 'oklch(var(--primary-foreground))',
-            '--tw-prose-counters': 'oklch(var(--secondary-foreground))',
+            '--tw-prose-quotes': 'oklch(var(--foreground-200))',
+            '--tw-prose-captions': 'oklch(var(--foreground-200))',
+            '--tw-prose-bullets': 'oklch(var(--muted-foreground))',
+            '--tw-prose-counters': 'oklch(var(--muted-foreground))',
           }
         }
       },

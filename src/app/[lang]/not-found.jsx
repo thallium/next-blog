@@ -15,7 +15,7 @@ export default function notFound() {
                 <p className="mb-8">Either you entered a wrong URL or the page doesn&apos;t have a translation in the current language.</p>
                 <Link
                     href="/"
-                    className="inline bg-secondary px-4 py-2 text-sm font-medium leading-5 shadow transition-colors duration-150"
+                    className="inline bg-accent px-4 py-2 text-sm font-medium leading-5 shadow transition-colors duration-150"
                 >
                     Back to homepage
                 </Link>

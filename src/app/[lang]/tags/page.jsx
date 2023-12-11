@@ -18,7 +18,7 @@ export default function page({ params }) {
                             <Link href={`/${lang}/tags/${tag[0]}`} className="flex-row items-center">
                                 <Hash size={16} className="inline" />
                                 {tag[0]}
-                                <span className="rounded-lg bg-secondary px-2 ml-1">
+                                <span className="rounded-lg bg-accent px-2 ml-1">
                                     {tag[1]}
                                 </span>
                             </Link>

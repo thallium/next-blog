@@ -14,7 +14,7 @@ export default function page({ params }) {
                 <MDXRemote source={content} options={{ mdxOptions }} components={MDXComponents} />
             </article>
             <h1 id={translate(lang, "recentPosts")} className="group text-3xl font-bold mt-8">{translate(lang, "recentPosts")}
-                <a aria-hidden="true" tabIndex="-1" className="opacity-0 no-underline text-neutral-content group-hover:opacity-100" href={`#${translate(lang, "recentPosts")}`}> #</a>
+                <a aria-hidden="true" tabIndex="-1" className="opacity-0 no-underline text-muted-foreground group-hover:opacity-100" href={`#${translate(lang, "recentPosts")}`}> #</a>
             </h1>
             <Posts lang={lang} page={1} />
         </main >
