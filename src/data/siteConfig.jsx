@@ -1,6 +1,7 @@
 import Figure from "@/components/Figure";
 import Collapsible from "@/components/Collapsible";
 import Image from "next/image";
+import Link from "next/link";
 
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math-old'
@@ -54,7 +55,8 @@ export const languages = {
 
 export const MDXComponents = {
     Figure, Collapsible,
-    Image: (props) => <Image {...props} />
+    Image: (props) => <Image {...props} />,
+    a: ({ href, children, ...props }) => <Link href={href} {...props} >{children}</Link>
 }
 
 export const mdxOptions = {
