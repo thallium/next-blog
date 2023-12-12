@@ -1,17 +1,17 @@
 ---
-title: RIME简介与小鹤音形
+title: RIME 简介与小鹤音形
 date: 2022-05-11
 categories: [教程]
-tags: [小鹤音形,rime,输入法]
+tags: ["小鹤音形", "rime", "输入法"]
 ---
 
 ## 码表
 
 ### 下载
 
-为了最大限度的自定义，我们肯定要找到纯文本码表，官方给的Rime挂接都只有二进制文件，但是我找了找竟然发现搜狗五笔是纯文本码表：[下载链接](http://ys-d.ysepan.com/116124351/318618271/VFSKVTu5446713983MKK9a/%E5%B0%8F%E9%B9%A4%E9%9F%B3%E5%BD%A2for%E6%90%9C%E7%8B%97%E4%BA%94%E7%AC%94%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%A1%88.zip)
+为了最大限度的自定义，我们肯定要找到纯文本码表，官方给的 Rime 挂接都只有二进制文件，但是我找了找竟然发现搜狗五笔是纯文本码表：[下载链接](http://ys-d.ysepan.com/116124351/318618271/VFSKVTu5446713983MKK9a/%E5%B0%8F%E9%B9%A4%E9%9F%B3%E5%BD%A2for%E6%90%9C%E7%8B%97%E4%BA%94%E7%AC%94%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%A1%88.zip)
 
-### 码表去重以及转换为Rime格式
+### 码表去重以及转换为 Rime 格式
 
 ```cpp
 #include <iostream>
@@ -79,9 +79,9 @@ use_preset_vocabulary: false
 
 [官方输入方案设计书](https://github.com/rime/home/wiki/RimeWithSchemata)
 
-[schema.yaml详解](https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md)
+[schema.yaml 详解](https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md)
 
-常用的文件有:
+常用的文件有：
 
 - 输入方案头文件 `<方案标识>.schema.yaml`
     - 定义一个输入方案
@@ -113,9 +113,9 @@ punctuator:
 switches:
   - name: ascii_mode
     reset: 0
-    states: [ 中文, 英文 ]
+    states: [ 中文，英文 ]
   - name: full_shape
-    states: [ 半角, 全角 ]
+    states: [ 半角，全角 ]
   - name: ascii_punct
    # states: [ 。，, ．， ]
     reset: 0
@@ -154,7 +154,7 @@ speller:
   max_code_length: 4
   auto_select: true   #顶字上屏
   auto_select_pattern: ^;.$|^\w{4}$
-  auto_clear: max_length #manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
+  auto_clear: max_length #manual|auto|max_length 空码按下一键确认清屏 | 空码自动清 | 达到最长码时后码顶上清屏
 
 translator:
   dictionary: flypy
@@ -183,7 +183,7 @@ key_binder:
   import_preset: default #方案切换相关
   bindings:
     - {accept: bracketleft, send: Page_Up, when: paging} # [上翻页
-    - {accept: bracketright, send: Page_Down, when: has_menu} # ]下翻页
+    - {accept: bracketright, send: Page_Down, when: has_menu} # ] 下翻页
     - {accept: comma, send: comma, when: paging} #注销逗号翻页
     - {accept: period, send: period, when: has_menu} #注销句号翻页
     - {accept: semicolon, send: 2, when: has_menu} #分号次选
@@ -205,5 +205,5 @@ menu:
   page_size: 5 #候选项数
   
 style:
-  horizontal: true #竖排为false
+  horizontal: true #竖排为 false
 ```

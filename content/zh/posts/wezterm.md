@@ -1,7 +1,7 @@
 ---
 title: "WezTerm 折腾记录"
 date: 2022-11-18T17:28:28-05:00
-summary: "记录使用WezTerm中遇到的问题，方便以后查阅"
+summary: "记录使用 WezTerm 中遇到的问题，方便以后查阅"
 keywords: ["WezTerm"]
 tags: ["WezTerm"]
 categories: []
@@ -11,7 +11,7 @@ categories: []
 
 ## 主题随系统自动切换
 
-`tokyonight_storm`和`tokyonight_day`是两个table，其中包含`colors`和`window_frame`。注意`window:set_config_overrides()`也会再次触发`window-config-reloaded`事件，所以一定要在当前主题需要改变的时候才调用`window:set_config_overrides`，不然会死循环。
+`tokyonight_storm`和`tokyonight_day`是两个 table，其中包含`colors`和`window_frame`。注意`window:set_config_overrides()`也会再次触发`window-config-reloaded`事件，所以一定要在当前主题需要改变的时候才调用`window:set_config_overrides`，不然会死循环。
 
 ```lua
 local function get_color()
@@ -34,7 +34,7 @@ wezterm.on('window-config-reloaded', function (window, pane)
 end)
 ```
 
-## 正常渲染Neovim中的波浪线
+## 正常渲染 Neovim 中的波浪线
 
 详见官方文档中的[F.A.Q.](https://wezfurlong.org/wezterm/faq.html#how-do-i-enable-undercurl-curly-underlines)
 

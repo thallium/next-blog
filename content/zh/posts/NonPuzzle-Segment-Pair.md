@@ -1,5 +1,5 @@
 ---
-title: "2023牛客多校9 I - Non-Puzzle: Segment Pair 题解"
+title: "2023 牛客多校 9 I - Non-Puzzle: Segment Pair 题解"
 date: 2023-08-14T21:59:24-04:00
 summary: "看起来很吓人的一道题"
 keywords: []

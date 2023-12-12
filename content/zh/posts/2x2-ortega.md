@@ -44,6 +44,6 @@ J:
 - UB: R' F R' F2 R U' R' F2 R2
 - UF: R' U R' F2 R F' R' F2 R2
 - DB: x R U' R U2 R' F R U2 R2
-- DL: R2 U' R' U L' U2 R U' R' U2 (先做auf)
+- DL: R2 U' R' U L' U2 R U' R' U2 (先做 auf)
 - DF: R U' R' U' F R2 U' R' U R' F' R
 - DR: R' F R U' R U R2 F' U R U R'

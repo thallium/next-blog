@@ -32,7 +32,7 @@ Section "InputClass"
 EndSection
 ```
 
-### 映射caps+hjkl为方向键
+### 映射 caps+hjkl 为方向键
 
 编辑`~/.Xmodmap`
 
@@ -87,17 +87,17 @@ sudo pacman -S arc-gtk-theme
 
 ## 软件
 
-### vim配置
+### vim 配置
 
 待更新
 
-### fcitx码表
+### fcitx 码表
 
 待更新
 
 ### Autojump
 
-快速跳转文件夹，再也不用长长的cd了～
+快速跳转文件夹，再也不用长长的 cd 了～
 
 #### 安装
 
@@ -117,9 +117,9 @@ source ~/.bashrc
 
 快速跳转的文件夹需要正常访问一次。
 
-### 截图: Deepin screenshot
+### 截图：Deepin screenshot
 
-一开始用的是火焰截图，但是不能自动识别窗口，后来偶然发现deepin screenshot感觉挺不错的。
+一开始用的是火焰截图，但是不能自动识别窗口，后来偶然发现 deepin screenshot 感觉挺不错的。
 
 ```sh
 sudo pacman -S deepin-screenshot
@@ -145,13 +145,13 @@ sudo bash setup.sh
 
 2020.03.27
 
-一般的解决方法是从命令行登录然后恢复之前的修改，但我从命令行也是循环登录……于是想到能不能从windows修改然后发现有个软件叫linux file system for windows，然后问题就解决了。真的太不容易了，心态差点崩了……
+一般的解决方法是从命令行登录然后恢复之前的修改，但我从命令行也是循环登录……于是想到能不能从 windows 修改然后发现有个软件叫 linux file system for windows，然后问题就解决了。真的太不容易了，心态差点崩了……
 
-### Gnome-shell内存泄漏问题
+### Gnome-shell 内存泄漏问题
 
-gnome传统艺能，`alt+F2`再输入`r`可以重新启动shell。
+gnome 传统艺能，`alt+F2`再输入`r`可以重新启动 shell。
 
-### 让gvim默认在新标签中启动
+### 让 gvim 默认在新标签中启动
 
 编辑`/usr/share/applications/gvim.desktop`
 
@@ -164,7 +164,7 @@ Exec=gvim -f %F
 Exec=gvim -p --remote-tab-silent %F
 ```
 
-### i3wm下运行QQ/TIM/Wechat
+### i3wm 下运行 QQ/TIM/Wechat
 
 2020-04-13
 
@@ -175,4 +175,4 @@ nohup /usr/lib/gsd-xsettings > /dev/null 2>&1 &
 cd /opt/deepinwine/apps/Deepin-TIM
 ./run.sh
 ```
-最后将第一步添加到i3启动项里。
+最后将第一步添加到 i3 启动项里。

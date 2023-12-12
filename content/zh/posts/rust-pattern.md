@@ -1,7 +1,7 @@
 ---
 title: Rust 模式（Pattern）
 date: 2022-06-26
-categories: [Rust学习笔记]
+categories: [Rust 学习笔记]
 tags: [Rust]
 ---
 
@@ -77,7 +77,7 @@ fn main() {
 }
 ```
 
-当变量名称与field名称相同时可以简写：
+当变量名称与 field 名称相同时可以简写：
 
 ```rust
 struct Point {
@@ -113,7 +113,7 @@ fn main() {
 }
 ```
 
-## 分解Enums
+## 分解 Enums
 
 ```rust
 enum Message {
@@ -145,7 +145,7 @@ fn main() {
 }
 ```
 
-## 分解嵌套的结构体或者Enums
+## 分解嵌套的结构体或者 Enums
 
 ```rust
 enum Color {
@@ -270,7 +270,7 @@ fn main() {
 }
 ```
 
-## 利用Match Guards实现更多的条件
+## 利用 Match Guards 实现更多的条件
 
 ```rust
 fn main() {

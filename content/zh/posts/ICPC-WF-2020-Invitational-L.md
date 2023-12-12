@@ -2,7 +2,7 @@
 title: "ICPC WF Moscow Invitational Contest L - Labyrinth 题解"
 date: 2021-10-01T19:32:08-06:00
 categories: [题解]
-tags: [图论,最大生成树,贪心]
+tags: ["图论", "最大生成树", "贪心"]
 ---
 
 

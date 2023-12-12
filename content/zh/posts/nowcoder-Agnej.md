@@ -1,5 +1,5 @@
 ---
-title: "2023牛客多校10 D - Agnej 题解"
+title: "2023 牛客多校 10 D - Agnej 题解"
 date: 2023-08-18T23:16:52-04:00
 summary: ""
 keywords: []

@@ -3,12 +3,12 @@ title: "AtCoder Beginner Contest 266 G 题解"
 date: 2022-08-29T21:16:32-04:00
 summary: "学了二项式反演"
 keywords: [ABC266, ABC266G, "AtCoder Beginner Contest 266", "AtCoder Beginner Contest 266 G"]
-tags: [AtCoder,数学,组合数学,二项式反演]
+tags: ["AtCoder", "数学", "组合数学", "二项式反演"]
 categories: [题解]
 ---
 直接利用组合数求解的做法比较简单，这里就不再赘述，着重讲利用二项式反演的做法。
 
-首先不难想到用 $i$ 个 RG，$r - i$个R，$g-i$个G，$b$个B排，得到看似是“至少有$i$的RG”的字符串数量。但是这样计数会有重复，比如`RG B R G`和`R G B RG`其实是一样的串但计数的时候算了两次，准确地说，含$j$个RG的串被重复记了$j\choose i$次，用数学语言表示就是：设$f(x)$为恰好含$x$个RG的字符串的数量，有
+首先不难想到用 $i$ 个 RG，$r - i$个 R，$g-i$个 G，$b$个 B 排，得到看似是“至少有$i$的 RG”的字符串数量。但是这样计数会有重复，比如`RG B R G`和`R G B RG`其实是一样的串但计数的时候算了两次，准确地说，含$j$个 RG 的串被重复记了$j\choose i$次，用数学语言表示就是：设$f(x)$为恰好含$x$个 RG 的字符串的数量，有
 $$\frac{(i + r - i + g - i + b)!}{i!(r - i)!(g - i)!b!} = \sum_{j = i}^{\min(r, g)}{j \choose i}f(i)$$
 
 这恰好是二项式反演的[形式二](https://wiki.tgc54.com/competitive-programming/binomial-inversion.html#%E5%BD%A2%E5%BC%8F%E4%BA%8C)，那么答案$f(k)$为

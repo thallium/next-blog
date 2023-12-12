@@ -1,5 +1,5 @@
 ---
-title: "算法竞赛机器人开发日志2"
+title: "算法竞赛机器人开发日志 2"
 subtitle: ""
 summary: "干了些小事"
 tags: []
@@ -28,17 +28,17 @@ projects: [cp-bot]
 
 ### 数据库相关
 
-最近了解到 ORM（我真是孤陋寡闻现在才知道这个东西），于是决定放弃 MongoDB 还是用关系型数据库，但 APScheduler 的 `SQLAlchemyJobStore` 好像没完全支持 SQLAlchemy 2所以比赛提醒暂时就没法做可持久化了，但一想可持久化也没有太大的用，每次更新缓存的时候重新添加一遍提醒应该就够了。。。缓存的话到是弄完了但是没法测试，因为今天cf的API一直都是挂了的。说到ORM就不得不提重构的事：
+最近了解到 ORM（我真是孤陋寡闻现在才知道这个东西），于是决定放弃 MongoDB 还是用关系型数据库，但 APScheduler 的 `SQLAlchemyJobStore` 好像没完全支持 SQLAlchemy 2 所以比赛提醒暂时就没法做可持久化了，但一想可持久化也没有太大的用，每次更新缓存的时候重新添加一遍提醒应该就够了。。。缓存的话到是弄完了但是没法测试，因为今天 cf 的 API 一直都是挂了的。说到 ORM 就不得不提重构的事：
 
 ### 重构
 
-现在 `Contest` 类不再用 `NamedTuple` 了，因为可以和ORM（用的SQLModel）的Model共用一个类，而且SQLModel的model也是Pydantic model所以可以直接用`parse_obj`，比之前`NamedTuple`优雅多了。不得不说SQLModel的理念真的很有想法。
+现在 `Contest` 类不再用 `NamedTuple` 了，因为可以和 ORM（用的 SQLModel）的 Model 共用一个类，而且 SQLModel 的 model 也是 Pydantic model 所以可以直接用`parse_obj`，比之前`NamedTuple`优雅多了。不得不说 SQLModel 的理念真的很有想法。
 
-### LaTex插件
+### LaTex 插件
 
-受群友的提示写了个渲染LaTex的插件，试了Matplotlib和SymPy的latex功能都不太满意，最后基于SymPy的`preview`函数自己写了个插件。
+受群友的提示写了个渲染 LaTex 的插件，试了 Matplotlib 和 SymPy 的 latex 功能都不太满意，最后基于 SymPy 的`preview`函数自己写了个插件。
 
 ### TODO
 - 缓存和提醒
-- 继续研究TLE的代码看看有没有好玩的功能
-- 把代码整理好开源到github上
+- 继续研究 TLE 的代码看看有没有好玩的功能
+- 把代码整理好开源到 github 上

@@ -6,12 +6,12 @@ keywords: ["neovim", "treesitter", "development"]
 tags: ["Neovim", "dev"]
 categories: ["小技巧"]
 ---
-最近实习工作开始写C/C++了，由于项目结构过于复杂导致 VSCode 的 language server 几乎是不可用的状态，所以心想不如换回最顺手的 neovim，但从来没有用 neovim 做过大项目，所以要研究如何实现我在 VSCode 里常用的一些功能：
+最近实习工作开始写 C/C++ 了，由于项目结构过于复杂导致 VSCode 的 language server 几乎是不可用的状态，所以心想不如换回最顺手的 neovim，但从来没有用 neovim 做过大项目，所以要研究如何实现我在 VSCode 里常用的一些功能：
 
 
 ## 搜索
 
-这里用的是 [nvim-spectre](https://github.com/windwp/nvim-spectre)，用起来和 VSCode 差不多，默认搜索用的是ripgrep所以速度很快，目前在用的快捷键：
+这里用的是 [nvim-spectre](https://github.com/windwp/nvim-spectre)，用起来和 VSCode 差不多，默认搜索用的是 ripgrep 所以速度很快，目前在用的快捷键：
 ```lua
 local map = vim.keymap.set -- 之后不再重复
 
@@ -34,7 +34,7 @@ map('n', '<Leader>ma', require("harpoon.mark").add_file)
 
 ## 大纲/Symbol
 
-之前用的 [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim) 但可惜不支持 treesitter，然后发现了更好用的 [aerial](https://github.com/stevearc/aerial.nvim)：不仅支持 treesitter 还有lualine扩展（显示当前函数），telescope picker（比telescope自带的symbol picker）好用。
+之前用的 [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim) 但可惜不支持 treesitter，然后发现了更好用的 [aerial](https://github.com/stevearc/aerial.nvim)：不仅支持 treesitter 还有 lualine 扩展（显示当前函数），telescope picker（比 telescope 自带的 symbol picker）好用。
 
 ```lua
 require('telescope').load_extension('aerial')
@@ -44,8 +44,8 @@ map('n', '<Leader>s', require'telescope'.extensions.aerial.aerial)
 
 ## 终端
 
-用[nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)管理终端，一个很好用的功能是自定义终端，比如定义一个默认打开lazygit的终端：
-<Figure src="https://user-images.githubusercontent.com/22454918/116447435-e69f1480-a84f-11eb-86dd-19fa29646aa1.png" alt="自定义lazygit示意图" position="center" caption="自定义lazygit示意图(来自官方README)" captionPosition="center" width="951" height="521" />
+用[nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)管理终端，一个很好用的功能是自定义终端，比如定义一个默认打开 lazygit 的终端：
+<Figure src="https://user-images.githubusercontent.com/22454918/116447435-e69f1480-a84f-11eb-86dd-19fa29646aa1.png" alt="自定义 lazygit 示意图" position="center" caption="自定义 lazygit 示意图 (来自官方 README)" captionPosition="center" width="951" height="521" />
 ```lua
 local Terminal  = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({

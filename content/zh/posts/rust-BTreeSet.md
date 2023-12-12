@@ -1,7 +1,7 @@
 ---
 title: Rust BTreeSet
 date: 2022-06-26
-categories: [Rust学习笔记]
+categories: [Rust 学习笔记]
 tags: [Rust]
 ---
 
@@ -9,7 +9,7 @@ tags: [Rust]
 
 ### [range()](https://doc.rust-lang.org/stable/std/collections/struct.BTreeSet.html#method.range)
 
-返回set中一段区间的迭代器，可以当C++中`std::set::lower_bound()`或者`std::set::upper_bound()`用，举例：
+返回 set 中一段区间的迭代器，可以当 C++ 中`std::set::lower_bound()`或者`std::set::upper_bound()`用，举例：
 ```rust
 use std::ops::Bound::*;
 let mut set = BTreeSet::new();

@@ -1,7 +1,7 @@
 ---
 title: Rust 迭代器（Iterator）
 date: 2022-06-26
-categories: [Rust学习笔记]
+categories: [Rust 学习笔记]
 tags: [Rust]
 ---
 

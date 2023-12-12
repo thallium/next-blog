@@ -1,7 +1,7 @@
 ---
 published: true
 date: 2019-11-10
-title: Dijkstra的一些扩展
+title: Dijkstra 的一些扩展
 categories: [算法笔记]
 tags: 
 - 最短路
@@ -29,7 +29,7 @@ for(pii it:E[u]){
 
 # 最短路径的数量
 
-和路径记录类似，如果更短就让数目等于1,如果一样就加1。
+和路径记录类似，如果更短就让数目等于 1，如果一样就加 1。
 
 ```cpp
 if(!vis[v]&&dis[u]+cost<dis[v]){

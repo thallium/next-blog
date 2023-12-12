@@ -114,7 +114,7 @@ $$
 
 维护$a_i$和$ia_i$的前缀和即可。
 
-例题：[洛谷P1438 无聊的数列](https://www.luogu.com.cn/problem/P1438)
+例题：[洛谷 P1438 无聊的数列](https://www.luogu.com.cn/problem/P1438)
 
 <Collapsible title="维护二阶差分">
 ```cpp

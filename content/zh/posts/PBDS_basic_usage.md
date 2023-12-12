@@ -1,12 +1,12 @@
 ---
 published: true
 date: 2020-03-13
-title: PB_DS的基础用法
+title: PB_DS 的基础用法
 categories: [教程]
 tags: [数据结构]
 layout: post
 ---
-Policy-Based Data Structure(PB_DS)的基础用法
+Policy-Based Data Structure(PB_DS) 的基础用法
 
 # 哈希表
 
@@ -79,10 +79,10 @@ tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_up
 ```
 ## 比`std::set`更强的功能：排名
 
-必须在声明里用`tree_order_statistics_node_update`以获得与排名相关的功能:
+必须在声明里用`tree_order_statistics_node_update`以获得与排名相关的功能：
 ```cpp
-size_type order_of_key(key_const_reference);// 返回比key小的元素的个数
-iterator find_by_order(size_type order) // 返回排名为order的元素的迭代器，排名从0开始
+size_type order_of_key(key_const_reference);// 返回比 key 小的元素的个数
+iterator find_by_order(size_type order) // 返回排名为 order 的元素的迭代器，排名从 0 开始
 ```
 
 e.g. 求[逆序对](https://www.luogu.com.cn/problem/P1908)
@@ -94,7 +94,7 @@ using namespace __gnu_pbds;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    // 注意此处用了less_equal以允许重复的元素
+    // 注意此处用了 less_equal 以允许重复的元素
     tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update> st;
     int n;
     cin >> n;
@@ -142,7 +142,7 @@ template<typename  Value_Type,
 __gnu_pbds::priority_queue<int>;
 ```
 
-所有的5种tag:
+所有的 5 种 tag:
 - `binary_heap_tag`
 - `binomial_heap_tag`
 - **`pairing_heap_tag`**
@@ -152,10 +152,10 @@ __gnu_pbds::priority_queue<int>;
 ## 和 `std::priority_queue`的不同之处
 
 ```cpp
-point_iterator push(const_reference r_val); //push会返回指向插入后元素的point迭代器（和遍历迭代器不一样）
-void PB_DS_CLASS_C_DEC:: join(PB_DS_CLASS_C_DEC& other) //合并两个堆同时清空other
-void split(Pred prd,priority_queue &other) // 根据prd函数的返回值（true或false）分裂两个堆
-void modify(point_iterator it,const key) // 某些堆支持快速修改堆中的元素，比如用在dijkstra中
+point_iterator push(const_reference r_val); //push 会返回指向插入后元素的 point 迭代器（和遍历迭代器不一样）
+void PB_DS_CLASS_C_DEC:: join(PB_DS_CLASS_C_DEC& other) //合并两个堆同时清空 other
+void split(Pred prd,priority_queue &other) // 根据 prd 函数的返回值（true 或 false）分裂两个堆
+void modify(point_iterator it,const key) // 某些堆支持快速修改堆中的元素，比如用在 dijkstra 中
 begin();
 end();//begin 和 end 迭代器
 ```
@@ -165,6 +165,6 @@ end();//begin 和 end 迭代器
 
 [Blowing up unordered_map, and how to stop getting hacked on it](https://codeforces.com/blog/entry/62393)
 
-[pb_ds库的一些常用方法](https://blog.csdn.net/riba2534/article/details/80454602?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task)
+[pb_ds 库的一些常用方法](https://blog.csdn.net/riba2534/article/details/80454602?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task)
 
 [用 pbds 过 luogu P3369【模板】普通平衡树](https://zhuanlan.zhihu.com/p/90104614)

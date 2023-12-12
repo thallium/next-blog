@@ -1,5 +1,5 @@
 ---
-title: "Google Code Jam 2021 R2 Matrygons题解"
+title: "Google Code Jam 2021 R2 Matrygons 题解"
 date: 2021-05-15T16:39:16-04:00
 categories: [题解]
 tags:

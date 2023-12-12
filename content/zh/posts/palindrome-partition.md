@@ -12,7 +12,7 @@ categories: ["算法笔记"]
 
 > 如果字符串可以被划分的话，它的最大划分是唯一的，并且可以通过从左往右贪心地选择最短的回文子串来得到最大划分。这里的“最大”指划分为回文子串的个数。
 
-第一次接触到这个结论是在 [Codeforces 1827C](https://codeforces.com/contest/1827/problem/C) 的题解中，后面会附上题解里证明的翻译。最近又在[23年牛客多校第二场的G题](https://ac.nowcoder.com/acm/contest/57356/G)遇到了这个结论。后面会简单地讨论这两个题。
+第一次接触到这个结论是在 [Codeforces 1827C](https://codeforces.com/contest/1827/problem/C) 的题解中，后面会附上题解里证明的翻译。最近又在[23 年牛客多校第二场的 G 题](https://ac.nowcoder.com/acm/contest/57356/G)遇到了这个结论。后面会简单地讨论这两个题。
 
 ## 证明
 

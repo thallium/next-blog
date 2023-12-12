@@ -14,14 +14,14 @@ tags: ["科技", "Home Server"]
 |整机|Intel NUC|
 |CPU|i7-10710U|
 |内存|16G|
-|硬盘|500G西数蓝盘+1TB希捷机械|
+|硬盘|500G 西数蓝盘 +1TB 希捷机械|
 |OS| Ubuntu 20.04.4 LTS|
 
 ## 通用
 
 [远程访问：端口转发，DDNS...](https://www.youtube.com/watch?v=wCJjiHp0d0w)
 
-SSL证书：
+SSL 证书：
 
 https://www.youtube.com/watch?v=c1t_OrIia1U
 
@@ -37,9 +37,9 @@ https://certbot.eff.org/instructions?ws=apache&os=ubuntufocal
 
 ### Pi-hole
 
-安装：使用[官方安装脚本](https://github.com/pi-hole/pi-hole#one-step-automated-install)即可。注意：脚本有个bug，即使你已经装了其他web server（比如Apache）也要选择装lighttdp，否则重启服务的时候脚本会崩溃。。。（当你看到此的时候也许已经修复了）
+安装：使用[官方安装脚本](https://github.com/pi-hole/pi-hole#one-step-automated-install)即可。注意：脚本有个 bug，即使你已经装了其他 web server（比如 Apache）也要选择装 lighttdp，否则重启服务的时候脚本会崩溃。。。（当你看到此的时候也许已经修复了）
 
-[配置Apache以访问web UI](https://gist.github.com/GAS85/62b8e4851923e5ecec29cbc9b374ab18)
+[配置 Apache 以访问 web UI](https://gist.github.com/GAS85/62b8e4851923e5ecec29cbc9b374ab18)
 
 一些黑名单：
 - https://github.com/blocklistproject/Lists
@@ -49,15 +49,15 @@ https://certbot.eff.org/instructions?ws=apache&os=ubuntufocal
 
 [安装](https://docs.photoprism.app/getting-started/docker-compose/)
 
-[反向代理](https://docs.photoprism.app/getting-started/proxies/apache-2/)，把http中的photoprism换成localhost
+[反向代理](https://docs.photoprism.app/getting-started/proxies/apache-2/)，把 http 中的 photoprism 换成 localhost
 
 ### RSSHub
 
-[docker compose部署](https://docs.rsshub.app/en/install/#docker-compose-deployment)
+[docker compose 部署](https://docs.rsshub.app/en/install/#docker-compose-deployment)
 
 ### Miniflux
 
-[docker compose部署](https://miniflux.app/docs/installation.html#docker)
+[docker compose 部署](https://miniflux.app/docs/installation.html#docker)
 
 ### Navidrome
 
@@ -65,9 +65,9 @@ https://certbot.eff.org/instructions?ws=apache&os=ubuntufocal
 
 ### qBittorrent(-nox)
 
-在服务器由于没有xorg所以装的是nox版本
+在服务器由于没有 xorg 所以装的是 nox 版本
 
 [安装教程](https://github.com/qbittorrent/qBittorrent/wiki/Running-qBittorrent-without-X-server-(WebUI-only,-systemd-service-set-up,-Ubuntu-15.04-or-newer)
 
-不知道为啥用局域网也访问不到，一种解决办法是利用ssh建立通道（[教程](https://rawsec.ml/en/archlinux-install-qbittorrent-nox-setup-webui/))，或者apache[反向代理](https://qbforums.shiki.hu/viewtopic.php?t=90)。
+不知道为啥用局域网也访问不到，一种解决办法是利用 ssh 建立通道（[教程](https://rawsec.ml/en/archlinux-install-qbittorrent-nox-setup-webui/))，或者 apache[反向代理](https://qbforums.shiki.hu/viewtopic.php?t=90)。
 
