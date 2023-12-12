@@ -26,7 +26,7 @@ export default function LangSwitch() {
                 {
                     config.langs.map(lang => (
                         <DropdownMenuItem key={lang}>
-                            <Link href={`/${lang}/${suffix}`} >{languages[lang].name}</Link>
+                            <Link href={`/${lang}/${suffix}`} className="px-2">{languages[lang].name}</Link>
                         </DropdownMenuItem>
                     ))
                 }
